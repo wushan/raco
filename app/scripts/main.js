@@ -1,4 +1,4 @@
 //Browserify
 const $ = require('./jquery.min');
 
-$('body').html('Jquery Required.')
+$('body').append('<h1>Jquery Required.</h1>');
