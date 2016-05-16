@@ -8,6 +8,7 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const spritesmith = require('gulp.spritesmith');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -45,7 +46,7 @@ gulp.task('scripts', () => {
 });
 
 gulp.task('views', () => {
-  return gulp.src('app/*.jade')
+  return gulp.src('app/**/*.jade')
     .pipe($.plumber())
     .pipe($.jade({pretty: true}))
     .pipe(gulp.dest('.tmp'))
@@ -97,6 +98,19 @@ gulp.task('images', () => {
     .pipe(gulp.dest('dist/images'));
 });
 
+//Make Sprites
+gulp.task('sprite', function() {
+    var spriteData = 
+        gulp.src('app/images/icons/*.*') // source path of the sprite images
+            .pipe(spritesmith({
+                imgName: '../sprite.png',
+                cssName: 'sprite.scss',
+            }));
+
+    spriteData.img.pipe(gulp.dest('app/images/')); // output path for the sprite
+    spriteData.css.pipe(gulp.dest('app/styles/lib/')); // output path for the CSS
+});
+
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/fonts/**/*'))
@@ -116,7 +130,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['views', 'styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['views', 'styles', 'sprite', 'scripts', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -134,6 +148,8 @@ gulp.task('serve', ['views', 'styles', 'scripts', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
+  gulp.watch('app/images/**/*', ['sprite']);
+  gulp.watch('app/**/*.jade', ['views']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
@@ -184,7 +200,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app/layouts'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'sprite', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
