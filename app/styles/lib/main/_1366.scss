@@ -1,0 +1,15 @@
+@include susy-breakpoint(1366px, 12) {
+	#introslider {
+		.overlay-layer {
+			#brand {
+				img {
+					width: auto;
+					height: 100%;
+				}
+				a {
+					height: 100%;
+				}
+			}
+		}
+	}
+}

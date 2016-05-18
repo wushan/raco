@@ -27,6 +27,7 @@
     "gulp-uglify": "^1.1.0",
     "gulp-useref": "^3.0.0",
     "main-bower-files": "^2.5.0",
+    "video.js": "^5.9.2",
     "wiredep": "^2.2.2"
   },
   "eslintConfig": {
@@ -44,6 +45,8 @@
   },
   "dependencies": {
     "babelify": "^7.3.0",
+    "gulp.spritesmith": "^6.2.1",
+    "jquery": "^2.2.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
