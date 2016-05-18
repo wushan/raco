@@ -1,31 +1,36 @@
-// bower:scss
-// endbower
+// Moduels
+  //Susy + BreakPoint
+  @import "bower_components/susy/sass/susy";
+  @import "bower_components/breakpoint-sass/stylesheets/breakpoint";
 
-body {
-  background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
-}
+  //Normalize
+  @import "normalize";
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-}
+  //Susy Global
+  @import "lib/susy_global";
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
+//Vars
+@import "lib/var/var";
+//Icons
+@import "lib/sprite";
+@import "lib/var/components";
+//Basic Settings
+@import "lib/base";
+
+//Layout
+@import "lib/layout";
+
+//Navigation
+@import "lib/nav";
+
+//Pages
+@import "lib/main";
+
+//Plugins
+@import "lib/plugins/slidebars.min";
+@import "lib/plugins/slick";
+@import "lib/plugins/slick-theme";
+@import "lib/plugins/magnific-popup";
+//Icons
+@import "lib/icons";
+@import "bower_components/font-awesome/scss/font-awesome";
