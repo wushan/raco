@@ -1,126 +1,33 @@
 extends layouts/default
+include layouts/mixin/_mixin
+//Custom Header
+block header
 
 block content
-  section#intro
-    .intro-inner
-      .header
-        img(src="images/components/rainbowflag.svg")
-      .content
-        .row.restrict
-          .block
-            .title
-              h1 孩子們的快樂天堂
-            p.
-              一個安全、舒適，能讓孩子與家長們真正放鬆的地方，一起動腦玩拼圖、疊積木，開心地推著嘎嘎作響的滑步車，讓每位來到這裡的朋友，見到孩子與自己發自內心的笑容，是我們時時提醒自己的初衷。
-          .block
-            img(src="images/components/dino.svg")
-      .footer
-        img(src="images/components/rainbowflag-shadow.svg")
-
-  section#fun
-    .row
-      .col
-        .block(style="background-image: url('images/components/fun-block-1.png');")
-          .overlay
-        .block
-          .block-inner
-            h2.
-              溜滑梯<span>Super Slide</span>
-            p.
-              「中中親子樂園」引進義大利進口筒狀螺旋溜滑梯，3.5 公尺超高設計，溜下時能體驗宛如自由落體般的速度快感，讓孩子們對於他們最愛的溜滑梯有全新感受。
-        
-      .col
-        .block(style="background-image: url('images/components/fun-block-2.png');")
-          .overlay
-        .block
-          .block-inner
-            h2.
-              木製玩具<span>Mentari Plaza</span>
-            p.
-              中中親子樂園採用在木頭玩具領域耕耘超過 20 年，產品符合 SGS 國際認證的玩具品牌 Mentari ，木質玩具豐富的觸感與益智功能，讓您的小朋友能夠安安心心的玩玩具！*本店提供 Mentari 木製玩具代購，若在店內看到喜歡的木頭玩具也可以詢問店員！
-      .col
-        .block(style="background-image: url('images/components/fun-block-3.png');")
-          .overlay
-        .block
-          .block-inner
-            h2.
-              寶寶專屬<span>Baby fun</span>
-            p.
-              「中中親子樂園」特別為小小寶貝開闢專屬的遊戲專區，藉由特別訂製的軟墊與圍欄，不只讓寶寶玩得開心，爸爸媽媽也不用再擔心小寶貝撞來撞去發生危險！
-
-      .col
-        .block(style="background-image: url('images/components/fun-block-4.png');")
-          .overlay
-        .block
-          .block-inner
-            h2.
-              超大空間<span>Playground</span>
-            p.
-              「中中親子樂園」，盡可能地壓縮用餐空間，為小朋友提供大量的遊戲場所，不定期更新各類玩具、童書，讓小朋友快樂吃，開心玩，不再吵著要回家！
-
-  section#about(data-vide-bg="images/video/bg")
-    .row.restrict
-      .block
-        img(src="images/components/avatar.png")
-        //- h1 從頭開始
-      .block
-        .paragraph
-          p.
-            我們是一對新手爸媽，對於育兒，我們一點兒經驗也沒有。
-
-          p.
-            我們不知道這個月孩子的身高體重發展是否正常，我們不知道孩子哭的意是什麼，我們不知道如何幫孩子洗澡，也不懂發燒到幾度才需要看醫生。我們都想對自己的孩子好，但卻不知道「好」的定義是什麼？買昂貴的玩具？動輒十數萬元的語言教材？你選百歲派還是親密派？你選的，到底對嗎？
-
-          p.
-            我們真的不知道，但是我們確信，每做一件事，都是孩子與我們的第一次。而每一刻都值得紀念。
-
-          p.
-            與孩子珍貴的相處時光非常短暫，一秒鐘也不該浪費，從成為父母開始，每到難得的週末假日，都思考著要帶孩子去哪裡，才能讓孩子擁有愉快的情緒，同時也不致破壞父母難得的好心情？「這裡人多不要去；那裡沒冷氣；這裡有蚊子；那裡食物不好吃」，走過十數家親子餐廳，總是覺得沒有一個地方屬於我們。
-
-          p.
-            於是我們開始構思 「middlemiddle 中中親子樂園」，一個安全、舒適，能讓孩子與家長們真正放鬆的地方，一起動腦玩拼圖、疊積木，開心地推著嘎嘎作響的滑步車，讓每位來到這裡的朋友，見到孩子與自己發自內心的笑容，是我們時時提醒自己的初衷。
-
-          p.
-            我們相信，快樂的情緒絕對是一種病，而且絕對會快速傳染、蔓延。帶著您的孩子來到這裡，一起接受我們的快樂傳染吧！
-
-  section#foods
-    header
-      h1 我們自己吃的食材，與您分享<small>We provide only <span>foods</span> we eat to you.</small>
-    .main
-      .restrict
-        p.
-          「中中親子樂園」只提供您最天然的食材，用最簡單的烹煮方法，讓您享用食材最原始的滋味。<br>在這裡，您只吃得到我們自己以及給孩子吃的食物，相信我們，一定比您更重視「食」的安全。
-      img(src="images/components/dish.png")
-  section#reservation
-    .reservation-inner.restrict-l
-      header
-        h3 立即預約
-        .phone-number (04)2437-1266
-      .main
-        h6 營業時間與相關規則請見下方說明
-        .open-hour <span>營業時間</span>：早上 10:00 - 晚上 20:00 ( 每週一公休 )
-        .row
-          .block
-            span 預約訂位注意事項：
-            ol
-              li 為維護所有顧客在本店的消費體驗，預約時間逾時保留 10 分鐘，超出時間者喪失優先入座權利。
-              li 預約人數如有增減，請盡可能於預約日期前提早通知我們，以利座位安排。
-              li 請盡可能使用電話訂位取代 Facebook 訊息：(04)2437-1266，電話預約接聽時間早上 9:00 - 晚上 20:30。
-              li 如當日您有任何特殊需求：如生日派對、古禮抓周、團體聚餐等，請於預約時註明。
-          .block 
-            span 消費方式：
-            ol
-              li 成人每位最低消費 200 元，六歲以上兒童低消 150 元，六歲以下兒童每位酌收 100 元清潔費 ( 不可抵消費 )。
-              li 用餐時間為 120 分鐘。
-            span 活動包場：
-            ol
-              li 如欲舉辦大型活動 ( 生日派對、社團聚餐等 )，請於活動 14 天前來電預約。 )
-          .block 
-            img(src="images/components/dino-sketching.gif")
-  section#map
-  section#instagram
-    .row
-    .overlay
-      .inner
-        h1
-          a(href="https://www.instagram.com/middlemiddlekids") Follow us on Instagram <span>@middlemiddlekids</span>
+	main
+		#main
+			section
+				.container.full-page.vertical-middle(style='background-image: url(http://unsplash.it/1440/680)')
+					.container-inner
+						//Custom
+						#logo
+							img(src='images/weypro.svg')
+						form.login-form
+							.title
+								h1 Login
+							.controlgroup
+								label Username
+								.controls
+									input(type='text', placeholder='Username')
+							.controlgroup
+								label Password
+								.controls
+									input(type='password', placeholder='Password')
+							.controlgroup
+								label Captcha
+								.controls
+									img.captcha-image(src='http://unsplash.it/90/36')
+									input#CAPTCHA(type='password', placeholder='Captcha')
+							.call-action
+								button.btn.basic.full(type='submit') SUBMIT
+								a(href='main.html') go		
