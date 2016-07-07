@@ -3,171 +3,215 @@
 //Expose Jquery Globally.
 window.$ = window.jQuery = require('jquery');
 
-const slick = require('./slick');
+const moment = require('./moment');
+const pikaday = require('./pikaday');
+const Handlebars = require('./handlebars');
 const sticky = require('./jquery.sticky');
-const slidebars = require('./slidebars.min');
-const vide = require('./jquery.vide.min');
-const tinyMap = require('./jquery.tinyMap.min');
 
+//Pikaday
+var startDate = new Pikaday({ field: document.getElementById('startdate') });
+var endDate = new Pikaday({ field: document.getElementById('enddate') });
 
-//Sticky //Usage: https://github.com/garand/sticky
+//Main Nav Sticker
 $(document).ready(function(){
-  $('#navigation').sticky({
+  $('.sticker').sticky({
     topSpacing:0,
     getWidthFrom: '#wrapper',
     widthFromWrapper: true,
     responsiveWidth: true,
     zIndex: 99
   });
+  $(window).resize(function(){
+    $(".sticker").sticky('update');
+  });
 });
 
-//Slidebars
-$.slidebars();
+// handlebars
+var source   = $("#searchresult-list").html();
+var template = Handlebars.compile(source);
 
-//Slick
-$('.intro-slider').slick({
-	autoplay: true,
-	autoplaySpeed: 4000,
-	fade: true
-});
-
-//Map
-//Map
-$('#map').tinyMap({
-    'center': ['24.1770491','120.7112015'],
-    'zoom': 16,
-    'scrollwheel': false,
-    'marker': [
-        {
-            'addr': ['24.1770491','120.7112015'],
-            'text': '<h2 style="margin: 0; text-align: center;">中中親子樂園</h2><ul style="margin:0;padding:0;list-style-type: none;"><li><b>地址：</b>台中市北屯區松竹五路 172 號</li><li><b>預約電話：</b>(04)2437-1266</li><li><b>營業時間：</b>10:00~20:00 ( 週一公休 )</li></ul>',
-            'newLabel': '中中親子樂園',
-            'newLabelCSS': 'labels',
-            // 自訂外部圖示
-            'icon': {
-                'url': 'images/components/map-pointer.png',
-                'scaledSize': [40, 48]
-            },
-            // 動畫效果
-            'animation': 'DROP'
-        }
-    ],
-    'styles': [
-      {
-          'featureType': 'administrative',
-          'elementType': 'labels.text.fill',
-          'stylers': [
-              {
-                  'color': '#444444'
-              }
-          ]
-      },
-      {
-          'featureType': 'administrative.country',
-          'elementType': 'geometry.fill',
-          'stylers': [
-              {
-                  'visibility': 'on'
-              }
-          ]
-      },
-      {
-          'featureType': 'landscape',
-          'elementType': 'all',
-          'stylers': [
-              {
-                  'color': '#f2f2f2'
-              }
-          ]
-      },
-      {
-          'featureType': 'poi',
-          'elementType': 'all',
-          'stylers': [
-              {
-                  'visibility': 'off'
-              }
-          ]
-      },
-      {
-          'featureType': 'road',
-          'elementType': 'all',
-          'stylers': [
-              {
-                  'saturation': -100
-              },
-              {
-                  'lightness': 45
-              }
-          ]
-      },
-      {
-          'featureType': 'road.highway',
-          'elementType': 'all',
-          'stylers': [
-              {
-                  'visibility': 'simplified'
-              }
-          ]
-      },
-      {
-          'featureType': 'road.arterial',
-          'elementType': 'labels.icon',
-          'stylers': [
-              {
-                  'visibility': 'off'
-              }
-          ]
-      },
-      {
-          'featureType': 'transit',
-          'elementType': 'all',
-          'stylers': [
-              {
-                  'visibility': 'off'
-              }
-          ]
-      },
-      {
-          'featureType': 'water',
-          'elementType': 'all',
-          'stylers': [
-              {
-                  'color': '#4694ec'
-              },
-              {
-                  'visibility': 'on'
-              }
-          ]
-      }
+var demo = {
+  "items": [
+    {
+      "index": "2",
+      "productslug": "AA",
+      "producedate": "xxx-xxx-xxx",
+      "productline": "LINE",
+      "heatno": "000000",
+      "trackno": "120248257",
+      "amounttested": "4000",
+      "amountpassed": "3539",
+      "passedrate": "3.0%"
+    },
+    {
+      "index": "2",
+      "productslug": "AA",
+      "producedate": "xxx-xxx-xxx",
+      "productline": "LINE",
+      "heatno": "000000",
+      "trackno": "120248257",
+      "amounttested": "4000",
+      "amountpassed": "3939",
+      "passedrate": "1.0%"
+    }
   ]
+}
+
+//SQM Searchform Control
+$('#product-slug').on('change', function(){
+  $('#product-slug-text').val($(this).val());
 });
 
-//Instagram
-var url = 'https://api.instagram.com/v1/tags/middlemiddlekids/media/recent?client_secret=fba9a00c391e493bba5080845f58f249&client_id=1ef4bf16979c442a8674cb1b58f79bca';
-
-$.ajax({
-    url: url,
-    type: 'POST',
-    crossDomain: true,
-    dataType: 'jsonp'
-}).done(function (data) {
-    // console.log(data);
-    listInstagram(data);
+//
+$('#sqm-searchform').on('submit', function(e){
+  e.preventDefault();
+  $.ajax({
+    method: 'GET',
+    url: '',
+    data: $(this).serialize(),
+    success: function(res) {
+      //Print Results on the page
+      $('#sqm-searchform').find('.results').html(template(demo));
+      $('.data-tables.normal').DataTable({
+        paging: true,
+        "pagingType": "full",
+          rowReorder: {
+          selector: 'td:first-child',
+          dataSrc: 'td:first-child'
+        },
+        ordering: true
+      });
+    }
+  }).fail(function(err){
+    $('#results').html(err.status + ':' + err.responseText);
+  })
 });
 
-function listInstagram(data) {
-  // var image = data.
-  var query = data;
-  var imageBlock;
-  // console.log(query);
-  // console.log(query.data[0].images.standard_resolution.url);
-  for (var i = 0; i <= 9; i++) {
-    // console.log(query.data[i].images.standard_resolution.url);
-    imageBlock = '<div class=\'block\'><a href=\'https://www.instagram.com/middlemiddlekids\' target=\'_blank\'><img class=\'lazyload\' src=\'' + query.data[i].images.low_resolution.url + '\' data-src=\'' + query.data[i].images.standard_resolution.url + '\'></a></div>'
-    $('#instagram .row').append(imageBlock);
+
+//Get speicific item
+$('#sqm-trackno-searchform').on('submit', function(e){
+  e.preventDefault();
+  $.ajax({
+    method: 'GET',
+    url: '',
+    data: $(this).serialize(),
+    success: function(res) {
+      //Print Results on the page
+      $('#results').html(res);
+
+    }
+  }).fail(function(err){
+    $('#results').html(err.status + ':' + err.responseText);
+  })
+});
+////////柏拉圖
+var chartdata = {
+      labels: ["NG1","NG2","NG3","NG4","NG5","NG6"],
+      datasets: [{
+          type: "line",
+          label: "Acumulado",
+          borderColor: "#BA1E14",
+          backgroundColor: "#BA1E14",
+          pointBorderWidth: 5,
+          fill: false,
+          data: [0.32,0.578064516, 0.771612903, 0.900645161, 0.96516129, 0.997419355],
+          yAxisID: 'y-axis-2'
+      },{
+          type: "bar",
+          label: "Asistencia",
+          borderColor: "#0F4788",
+          backgroundColor: "#0F4788",
+          data: [50,40,30,20,10,5],
+          yAxisID: 'y-axis-1'
+      }
+      ]
   };
+
+var options = {
+    responsive : true,
+    scales: {
+        xAxes: [{
+            stacked: true,
+            scaleLabel: {
+                display: true,
+                labelString: "paretochart"
+            }
+        }],
+
+        yAxes: [{
+            type: "linear",
+            position: "left",
+            id: "y-axis-1",
+            stacked: true,
+            ticks: {
+                suggestedMin: 0
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "Amount"
+            }
+        },{
+            type: "linear",
+            position: "right",
+            id: "y-axis-2",
+            ticks: {
+                suggestedMin: 0
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "something i dont know"
+            }
+        }]
+    }
 };
+
+//統計圖
+var chartdata2 = {
+        datasets: [{
+            label: "My First dataset",
+            data: [{
+                    x: 0,
+                    y: 0
+                }, {
+                    x: 1,
+                    y: 51
+                }, {
+                    x: 2,
+                    y: 52
+                }, {
+                    x: 3,
+                    y: 53
+                }, {
+                    x: 4,
+                    y: 54
+                }
+            ]
+        }] // datasets
+    }; //chartData
+
+var options2 = {
+      responsive:true,
+      scales: {
+          xAxes: [{
+              type: 'linear',
+              position: 'bottom'
+          }]
+      }
+    }
+
+var ctx = $("#paretochart").get(0).getContext("2d");
+var ctx2 = $("#avgchart").get(0).getContext("2d");
+
+renderChart(ctx,chartdata,options,'bar');
+renderChart(ctx2,chartdata2,options2,'line');
+//Chart.js
+function renderChart(ctx, data, options, type) {
+  new Chart(ctx, {
+      type: type,
+      data: data,
+      options: options
+  });
+}
 
 //Smooth Scrolling
 $(function() {
@@ -184,13 +228,3 @@ $(function() {
     }
   });
 });
-
-//Typekit Fonts
-(function(d) {
-	var config = {
-	  kitId: 'vyk4abu',
-	  scriptTimeout: 3000,
-	  async: false
-	},
-	h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,'')+' wf-inactive';},config.scriptTimeout),tk=d.createElement('script'),f=false,s=d.getElementsByTagName('script')[0],a;h.className+=' wf-loading';tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!='complete'&&a!='loaded')return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-})(document);

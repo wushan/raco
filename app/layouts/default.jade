@@ -2,17 +2,12 @@ doctype html
 html.no-js
 	head
 		meta(charset='utf-8')
-		title My Webapp
+		title IRON Co.,ltd. Supplier Quality Management System
 		meta(name='description' content='')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 		link(rel='apple-touch-icon' href='apple-touch-icon.png')
 		// Place favicon.ico and apple-touch-icon.png in the root directory
 
-		// build:css styles/vendor.css
-		// bower:css
-		link(rel='stylesheet' href='../bower_components/weyproui/build/styles/weyproui.css')
-		// endbower
-		// endbuild
 
 		// build:css styles/customize.css
 		link(rel='stylesheet' href='styles/customize.css')
@@ -41,9 +36,7 @@ html.no-js
 						.container
 							include navigation
 			block content
-			block footer
-				.footer
-					.copyrights WEYPRO TECHNOLOGY
+			
 
 		// Google Analytics: change UA-XXXXX-X to be your site's ID.
 		script.
@@ -54,11 +47,17 @@ html.no-js
 			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 			ga('create','UA-XXXXX-X');ga('send','pageview');
 
-		// build:js scripts/vendor.js
-		// bower:js
-		script(src='../bower_components/jquery/dist/jquery.js')
-		// endbower
+		// build:js scripts/weypro.pickaday.js
+		script(src='scripts/pikaday.js')
 		// endbuild
+
+		// build:js scripts/weypro.Chart.js
+		script(src='../bower_components/weyproui/build/scripts/weypro.Chart.js')
+		// endbuild
+		
+		// build:js scripts/main.js
+		script(src="scripts/bundle.js")
+		// endbuild 
 
 		// build:js scripts/weypro.viewport.js
 		script(src='../bower_components/weyproui/build/scripts/weypro.viewport.js')
@@ -74,10 +73,6 @@ html.no-js
 
 		// build:js scripts/weypro.dropZone.js
 		script(src='../bower_components/weyproui/build/scripts/weypro.dropZone.js')
-		// endbuild
-
-		// build:js scripts/weypro.sticky.js
-		script(src='../bower_components/weyproui/build/scripts/weypro.sticky.js')
 		// endbuild
 
 		// build:js scripts/weypro.dropDown.js
@@ -97,6 +92,8 @@ html.no-js
 		script(src='../bower_components/weyproui/build/scripts/weypro.dataTables.js')
 		// endbuild
 
-		// build:js scripts/weypro.Chart.js
-		script(src='../bower_components/weyproui/build/scripts/weypro.Chart.js')
-		// endbuild
+		
+
+		
+
+		

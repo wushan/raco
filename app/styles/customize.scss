@@ -1,0 +1,70 @@
+/****************************************************************
+*****************************************************************
+********************Variables Settings***************************
+*****************************************************************
+*****************************************************************/
+/******************************
+************COLORS************
+******************************/
+
+// Moduels
+  //Susy + BreakPoint
+  @import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+  @import "bower_components/susy/sass/susy";
+  @import "bower_components/breakpoint-sass/stylesheets/breakpoint";
+  @import "bower_components/weyproui/app/styles/weyproui";
+  
+/* Common Colors */
+/******************************
+************FONTS************
+******************************/
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+/******************************
+*****Container Restriction*****
+******************************/
+/*Usually set as your page wide. ex. 1170px, 960px */
+/******************************
+*************Form*************
+******************************/
+/******************************
+***********Nvaigator***********
+******************************/
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+#library-edit-wrapper .thumbnail {
+  margin-bottom: 1em;
+}
+
+.login-form {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 1em 2em;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.66);
+  box-sizing: border-box;
+}
+
+.login-form .title {
+  padding: 0 0 1em 0;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #dddddd;
+}
+
+.login-form .title h1 {
+  margin: 0;
+}
+
+#logo {
+  margin: 2em 0;
+  padding: 0 2em;
+}
+
+
+@import "lib/plugins/pikaday";
