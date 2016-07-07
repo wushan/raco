@@ -27,8 +27,11 @@ $(document).ready(function(){
 });
 
 // handlebars
-var source   = $("#searchresult-list").html();
-var template = Handlebars.compile(source);
+var sourceSearchResultList = $("#searchresult-list").html();
+var sourceSearchResultListTemplate = Handlebars.compile(sourceSearchResultList);
+var sourceSearchResultItem = $("#searchresult-item").html();
+var sourceSearchResultItemTemplate = Handlebars.compile(sourceSearchResultItem);
+
 
 var demo = {
   "items": [
@@ -71,7 +74,7 @@ $('#sqm-searchform').on('submit', function(e){
     data: $(this).serialize(),
     success: function(res) {
       //Print Results on the page
-      $('#sqm-searchform').find('.results').html(template(demo));
+      $('#sqm-searchform').find('.results').html(sourceSearchResultListTemplate(demo));
       $('.data-tables.normal').DataTable({
         paging: true,
         "pagingType": "full",
@@ -97,14 +100,9 @@ $('#sqm-trackno-searchform').on('submit', function(e){
     data: $(this).serialize(),
     success: function(res) {
       //Print Results on the page
-      $('#results').html(res);
-
-    }
-  }).fail(function(err){
-    $('#results').html(err.status + ':' + err.responseText);
-  })
-});
-////////柏拉圖
+      $('#sqm-trackno-searchform').find('.results').html(sourceSearchResultItemTemplate());
+      //Trigger that chart
+      ////////柏拉圖
 var chartdata = {
       labels: ["NG1","NG2","NG3","NG4","NG5","NG6"],
       datasets: [{
@@ -123,8 +121,7 @@ var chartdata = {
           backgroundColor: "#0F4788",
           data: [50,40,30,20,10,5],
           yAxisID: 'y-axis-1'
-      }
-      ]
+      }]
   };
 
 var options = {
@@ -167,43 +164,114 @@ var options = {
 
 //統計圖
 var chartdata2 = {
-        datasets: [{
-            label: "My First dataset",
-            data: [{
-                    x: 0,
-                    y: 0
-                }, {
-                    x: 1,
-                    y: 51
-                }, {
-                    x: 2,
-                    y: 52
-                }, {
-                    x: 3,
-                    y: 53
-                }, {
-                    x: 4,
-                    y: 54
-                }
-            ]
-        }] // datasets
+      labels: ['','','','','','','','','','','','',],
+      datasets: [{
+          type: "bar",
+          label: "Asistencia",
+          borderColor: "#0F4788",
+          backgroundColor: "#0F4788",
+          data: [0,0,0,10,11,14,20,12,5,0,0,0],
+          yAxisID: 'y-axis-1'
+      },{
+          type: "line",
+          label: "My First dataset",
+          data: [{
+              x: 0,
+              y: 0
+          },{
+              x: 0,
+              y: 0
+          },{
+              x: 0,
+              y: 0
+          }, {
+              x: 0,
+              y: 8
+          }, {
+              x: 0,
+              y: 18
+          },{
+              x: 0,
+              y: 25
+          },{
+              x: 0,
+              y: 18
+          },{
+              x: 0,
+              y: 8
+          },{
+              x: 0,
+              y: 0
+          },{
+              x: 0,
+              y: 0
+          },{
+              x: 0,
+              y: 0
+          },{
+              x: 0,
+              y: 0
+          }],
+          xAxisID: 'y-axis-2'
+      }]
+
+         // datasets
     }; //chartData
 
 var options2 = {
-      responsive:true,
+      responsive: true,
       scales: {
-          xAxes: [{
-              type: 'linear',
-              position: 'bottom'
-          }]
-      }
+        xAxes: [{
+            position: 'bottom',
+            stacked: true,
+            id: "y-axis-2",
+            scaleLabel: {
+                display: true,
+                labelString: "paretochart"
+            },
+            ticks: {
+                suggestedMin: 0
+            }
+        }],
+
+        yAxes: [{
+            type: "linear",
+            position: "left",
+            id: "y-axis-1",
+            stacked: true,
+            ticks: {
+                suggestedMin: 0
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "Amount"
+            }
+        },{
+            type: "linear",
+            position: "right",
+            
+            ticks: {
+                suggestedMin: 0
+            },
+            scaleLabel: {
+                display: true,
+                labelString: "something i dont know"
+            }
+        }]
     }
+}
 
 var ctx = $("#paretochart").get(0).getContext("2d");
 var ctx2 = $("#avgchart").get(0).getContext("2d");
 
 renderChart(ctx,chartdata,options,'bar');
-renderChart(ctx2,chartdata2,options2,'line');
+renderChart(ctx2,chartdata2,options2,'bar');
+    }
+  }).fail(function(err){
+    $('#results').html(err.status + ':' + err.responseText);
+  })
+});
+
 //Chart.js
 function renderChart(ctx, data, options, type) {
   new Chart(ctx, {

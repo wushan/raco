@@ -41,12 +41,12 @@ block content
 
 					/////// A SEARCH RESULT ITEM HANDLEBARS TEMPLATE
 					script#searchresult-item(type='text/x-handlebars-template')
-					.container.restrict
-						.row
-							.grid.g-6-12
-								canvas#paretochart
-							.grid.g-6-12
-								canvas#avgchart
+						.container.restrict
+							.row
+								.grid.g-6-12
+									canvas#paretochart
+								.grid.g-6-12
+									canvas#avgchart
 
 			section
 				form#sqm-searchform
@@ -110,3 +110,4 @@ block content
 											input.full(type='text', placeholder='輸入單號', name='producttrackno' required)
 									.call-action
 										button.btn.basic.full(type='submit') 搜尋
+									.results
