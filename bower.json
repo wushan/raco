@@ -6,10 +6,11 @@
     "susy": "^2.2.12",
     "breakpoint-sass": "^2.7.0",
     "font-awesome": "font-awsome#^4.6.3",
-    "weyproui": "^0.3.0",
+    "weyproui": "^0.3.3",
     "bourbon": "^4.2.7",
     "handlebars": "^4.0.5",
-    "jquery-sticky": "^1.0.3"
+    "jquery-sticky": "^1.0.3",
+    "jquery-modal": "^0.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

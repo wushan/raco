@@ -58,21 +58,27 @@ block content
 									.controlgroup
 										label 代號
 										.controls
-											.select-wrapper.grid.g-3-12
-												select#product-slug()
-													option(value='A666') A666
-													option(value='A667') A667
-													option(value='A668') A668
-													option(value='A669') A669
-													option(value='A670') A670
-													option(value='A671') A671
-													option(value='A672') A672
-											input#product-slug-text.grid.g-9-12(type='text', placeholder='輸入代號', name='productslug' required)
+											.row
+												.grid.g-3-12
+													.select-wrapper
+														select#product-slug()
+															option(value='A666') A666
+															option(value='A667') A667
+															option(value='A668') A668
+															option(value='A669') A669
+															option(value='A670') A670
+															option(value='A671') A671
+															option(value='A672') A672
+												.grid.g-9-12
+													input#product-slug-text(type='text', placeholder='輸入代號', name='productslug' required)
 									.controlgroup
 										label 日期區間
 										.controls
-											input.grid.g-6-12#startdate(type="text", placeholder="起始日期", name='startdate' required)
-											input.grid.g-6-12#enddate(type="text", placeholder="結束日期", name='enddate' required)
+											.row
+												.grid.g-6-12
+													input#startdate(type="text", placeholder="起始日期", name='startdate' required)
+												.grid.g-6-12
+													input#enddate(type="text", placeholder="結束日期", name='enddate' required)
 									.controlgroup
 										label 生產線別
 										.controls

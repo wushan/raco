@@ -22,40 +22,40 @@ $(document).ready(function(){
     zIndex: 99
   });
   $(window).resize(function(){
-    $(".sticker").sticky('update');
+    $('.sticker').sticky('update');
   });
 });
 
 // handlebars
-var sourceSearchResultList = $("#searchresult-list").html();
+var sourceSearchResultList = $('#searchresult-list').html();
 var sourceSearchResultListTemplate = Handlebars.compile(sourceSearchResultList);
-var sourceSearchResultItem = $("#searchresult-item").html();
+var sourceSearchResultItem = $('#searchresult-item').html();
 var sourceSearchResultItemTemplate = Handlebars.compile(sourceSearchResultItem);
 
 
 var demo = {
-  "items": [
+  'items': [
     {
-      "index": "2",
-      "productslug": "AA",
-      "producedate": "xxx-xxx-xxx",
-      "productline": "LINE",
-      "heatno": "000000",
-      "trackno": "120248257",
-      "amounttested": "4000",
-      "amountpassed": "3539",
-      "passedrate": "3.0%"
+      'index': '2',
+      'productslug': 'AA',
+      'producedate': 'xxx-xxx-xxx',
+      'productline': 'LINE',
+      'heatno': '000000',
+      'trackno': '120248257',
+      'amounttested': '4000',
+      'amountpassed': '3539',
+      'passedrate': '3.0%'
     },
     {
-      "index": "2",
-      "productslug": "AA",
-      "producedate": "xxx-xxx-xxx",
-      "productline": "LINE",
-      "heatno": "000000",
-      "trackno": "120248257",
-      "amounttested": "4000",
-      "amountpassed": "3939",
-      "passedrate": "1.0%"
+      'index': '2',
+      'productslug': 'AA',
+      'producedate': 'xxx-xxx-xxx',
+      'productline': 'LINE',
+      'heatno': '000000',
+      'trackno': '120248257',
+      'amounttested': '4000',
+      'amountpassed': '3939',
+      'passedrate': '1.0%'
     }
   ]
 }
@@ -77,7 +77,7 @@ $('#sqm-searchform').on('submit', function(e){
       $('#sqm-searchform').find('.results').html(sourceSearchResultListTemplate(demo));
       $('.data-tables.normal').DataTable({
         paging: true,
-        "pagingType": "full",
+        'pagingType': 'full',
           rowReorder: {
           selector: 'td:first-child',
           dataSrc: 'td:first-child'
@@ -104,21 +104,21 @@ $('#sqm-trackno-searchform').on('submit', function(e){
       //Trigger that chart
       ////////柏拉圖
 var chartdata = {
-      labels: ["NG1","NG2","NG3","NG4","NG5","NG6"],
+      labels: ['NG1','NG2','NG3','NG4','NG5','NG6'],
       datasets: [{
-          type: "line",
-          label: "Acumulado",
-          borderColor: "#BA1E14",
-          backgroundColor: "#BA1E14",
+          type: 'line',
+          label: 'Acumulado',
+          borderColor: '#BA1E14',
+          backgroundColor: '#BA1E14',
           pointBorderWidth: 5,
           fill: false,
           data: [0.32,0.578064516, 0.771612903, 0.900645161, 0.96516129, 0.997419355],
           yAxisID: 'y-axis-2'
       },{
-          type: "bar",
-          label: "Asistencia",
-          borderColor: "#0F4788",
-          backgroundColor: "#0F4788",
+          type: 'bar',
+          label: 'Asistencia',
+          borderColor: '#0F4788',
+          backgroundColor: '#0F4788',
           data: [50,40,30,20,10,5],
           yAxisID: 'y-axis-1'
       }]
@@ -131,32 +131,32 @@ var options = {
             stacked: true,
             scaleLabel: {
                 display: true,
-                labelString: "paretochart"
+                labelString: 'paretochart'
             }
         }],
 
         yAxes: [{
-            type: "linear",
-            position: "left",
-            id: "y-axis-1",
+            type: 'linear',
+            position: 'left',
+            id: 'y-axis-1',
             stacked: true,
             ticks: {
                 suggestedMin: 0
             },
             scaleLabel: {
                 display: true,
-                labelString: "Amount"
+                labelString: 'Amount'
             }
         },{
-            type: "linear",
-            position: "right",
-            id: "y-axis-2",
+            type: 'linear',
+            position: 'right',
+            id: 'y-axis-2',
             ticks: {
                 suggestedMin: 0
             },
             scaleLabel: {
                 display: true,
-                labelString: "something i dont know"
+                labelString: 'something i dont know'
             }
         }]
     }
@@ -166,15 +166,15 @@ var options = {
 var chartdata2 = {
       labels: ['','','','','','','','','','','','',],
       datasets: [{
-          type: "bar",
-          label: "Asistencia",
-          borderColor: "#0F4788",
-          backgroundColor: "#0F4788",
+          type: 'bar',
+          label: 'Asistencia',
+          borderColor: '#0F4788',
+          backgroundColor: '#0F4788',
           data: [0,0,0,10,11,14,20,12,5,0,0,0],
           yAxisID: 'y-axis-1'
       },{
-          type: "line",
-          label: "My First dataset",
+          type: 'line',
+          label: 'My First dataset',
           data: [{
               x: 0,
               y: 0
@@ -224,10 +224,10 @@ var options2 = {
         xAxes: [{
             position: 'bottom',
             stacked: true,
-            id: "y-axis-2",
+            id: 'y-axis-2',
             scaleLabel: {
                 display: true,
-                labelString: "paretochart"
+                labelString: 'paretochart'
             },
             ticks: {
                 suggestedMin: 0
@@ -235,34 +235,34 @@ var options2 = {
         }],
 
         yAxes: [{
-            type: "linear",
-            position: "left",
-            id: "y-axis-1",
+            type: 'linear',
+            position: 'left',
+            id: 'y-axis-1',
             stacked: true,
             ticks: {
                 suggestedMin: 0
             },
             scaleLabel: {
                 display: true,
-                labelString: "Amount"
+                labelString: 'Amount'
             }
         },{
-            type: "linear",
-            position: "right",
+            type: 'linear',
+            position: 'right',
             
             ticks: {
                 suggestedMin: 0
             },
             scaleLabel: {
                 display: true,
-                labelString: "something i dont know"
+                labelString: 'something i dont know'
             }
         }]
     }
 }
 
-var ctx = $("#paretochart").get(0).getContext("2d");
-var ctx2 = $("#avgchart").get(0).getContext("2d");
+var ctx = $('#paretochart').get(0).getContext('2d');
+var ctx2 = $('#avgchart').get(0).getContext('2d');
 
 renderChart(ctx,chartdata,options,'bar');
 renderChart(ctx2,chartdata2,options2,'bar');

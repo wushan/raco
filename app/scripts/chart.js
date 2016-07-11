@@ -7,7 +7,7 @@
  * Released under the MIT license
  * https://github.com/chartjs/Chart.js/blob/master/LICENSE.md
  */
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Chart = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==='object'&&typeof module!=='undefined'){module.exports=f()}else if(typeof define==='function'&&define.amd){define([],f)}else{var g;if(typeof window!=='undefined'){g=window}else if(typeof global!=='undefined'){g=global}else if(typeof self!=='undefined'){g=self}else{g=this}g.Chart = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=='function'&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error('Cannot find module \''+o+'\'');throw f.code='MODULE_NOT_FOUND',f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=='function'&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
 },{}],2:[function(require,module,exports){
 /* MIT license */
@@ -70,7 +70,7 @@ function getRgba(string) {
       a = parseFloat(match[4]);
    }
    else if (match = string.match(keyword)) {
-      if (match[1] == "transparent") {
+      if (match[1] == 'transparent') {
          return [0, 0, 0, 0];
       }
       rgb = colorNames[match[1]];
@@ -149,7 +149,7 @@ function getAlpha(string) {
 
 // generators
 function hexString(rgb) {
-   return "#" + hexDouble(rgb[0]) + hexDouble(rgb[1])
+   return '#' + hexDouble(rgb[0]) + hexDouble(rgb[1])
               + hexDouble(rgb[2]);
 }
 
@@ -157,15 +157,15 @@ function rgbString(rgba, alpha) {
    if (alpha < 1 || (rgba[3] && rgba[3] < 1)) {
       return rgbaString(rgba, alpha);
    }
-   return "rgb(" + rgba[0] + ", " + rgba[1] + ", " + rgba[2] + ")";
+   return 'rgb(' + rgba[0] + ', ' + rgba[1] + ', ' + rgba[2] + ')';
 }
 
 function rgbaString(rgba, alpha) {
    if (alpha === undefined) {
       alpha = (rgba[3] !== undefined ? rgba[3] : 1);
    }
-   return "rgba(" + rgba[0] + ", " + rgba[1] + ", " + rgba[2]
-           + ", " + alpha + ")";
+   return 'rgba(' + rgba[0] + ', ' + rgba[1] + ', ' + rgba[2]
+           + ', ' + alpha + ')';
 }
 
 function percentString(rgba, alpha) {
@@ -176,29 +176,29 @@ function percentString(rgba, alpha) {
        g = Math.round(rgba[1]/255 * 100),
        b = Math.round(rgba[2]/255 * 100);
 
-   return "rgb(" + r + "%, " + g + "%, " + b + "%)";
+   return 'rgb(' + r + '%, ' + g + '%, ' + b + '%)';
 }
 
 function percentaString(rgba, alpha) {
    var r = Math.round(rgba[0]/255 * 100),
        g = Math.round(rgba[1]/255 * 100),
        b = Math.round(rgba[2]/255 * 100);
-   return "rgba(" + r + "%, " + g + "%, " + b + "%, " + (alpha || rgba[3] || 1) + ")";
+   return 'rgba(' + r + '%, ' + g + '%, ' + b + '%, ' + (alpha || rgba[3] || 1) + ')';
 }
 
 function hslString(hsla, alpha) {
    if (alpha < 1 || (hsla[3] && hsla[3] < 1)) {
       return hslaString(hsla, alpha);
    }
-   return "hsl(" + hsla[0] + ", " + hsla[1] + "%, " + hsla[2] + "%)";
+   return 'hsl(' + hsla[0] + ', ' + hsla[1] + '%, ' + hsla[2] + '%)';
 }
 
 function hslaString(hsla, alpha) {
    if (alpha === undefined) {
       alpha = (hsla[3] !== undefined ? hsla[3] : 1);
    }
-   return "hsla(" + hsla[0] + ", " + hsla[1] + "%, " + hsla[2] + "%, "
-           + alpha + ")";
+   return 'hsla(' + hsla[0] + ', ' + hsla[1] + '%, ' + hsla[2] + '%, '
+           + alpha + ')';
 }
 
 // hwb is a bit different than rgb(a) & hsl(a) since there is no alpha specific syntax
@@ -207,8 +207,8 @@ function hwbString(hwb, alpha) {
    if (alpha === undefined) {
       alpha = (hwb[3] !== undefined ? hwb[3] : 1);
    }
-   return "hwb(" + hwb[0] + ", " + hwb[1] + "%, " + hwb[2] + "%"
-           + (alpha !== undefined && alpha !== 1 ? ", " + alpha : "") + ")";
+   return 'hwb(' + hwb[0] + ', ' + hwb[1] + '%, ' + hwb[2] + '%'
+           + (alpha !== undefined && alpha !== 1 ? ', ' + alpha : '') + ')';
 }
 
 function keyword(rgb) {
@@ -222,7 +222,7 @@ function scale(num, min, max) {
 
 function hexDouble(num) {
   var str = num.toString(16).toUpperCase();
-  return (str.length < 2) ? "0" + str : str;
+  return (str.length < 2) ? '0' + str : str;
 }
 
 
@@ -232,7 +232,7 @@ for (var name in colorNames) {
    reverseNames[colorNames[name]] = name;
 }
 
-},{"6":6}],3:[function(require,module,exports){
+},{'6':6}],3:[function(require,module,exports){
 /* MIT license */
 var convert = require(5);
 var string = require(2);
@@ -717,7 +717,7 @@ if (typeof window !== 'undefined') {
 
 module.exports = Color;
 
-},{"2":2,"5":5}],4:[function(require,module,exports){
+},{'2':2,'5':5}],4:[function(require,module,exports){
 /* MIT license */
 
 module.exports = {
@@ -1426,10 +1426,10 @@ var convert = function() {
 
 for (var func in conversions) {
   // export Raw versions
-  convert[func + "Raw"] =  (function(func) {
+  convert[func + 'Raw'] =  (function(func) {
     // accept array or plain args
     return function(arg) {
-      if (typeof arg == "number")
+      if (typeof arg == 'number')
         arg = Array.prototype.slice.call(arguments);
       return conversions[func](arg);
     }
@@ -1444,11 +1444,11 @@ for (var func in conversions) {
 
   convert[from][to] = convert[func] = (function(func) { 
     return function(arg) {
-      if (typeof arg == "number")
+      if (typeof arg == 'number')
         arg = Array.prototype.slice.call(arguments);
       
       var val = conversions[func](arg);
-      if (typeof val == "string" || val === undefined)
+      if (typeof val == 'string' || val === undefined)
         return val; // keyword
 
       for (var i = 0; i < val.length; i++)
@@ -1473,7 +1473,7 @@ Converter.prototype.routeSpace = function(space, args) {
       return this.getValues(space);
    }
    // color.rgb(10, 10, 10)
-   if (typeof values == "number") {
+   if (typeof values == 'number') {
       values = Array.prototype.slice.call(args);        
    }
 
@@ -1503,163 +1503,163 @@ Converter.prototype.getValues = function(space) {
   return vals;
 };
 
-["rgb", "hsl", "hsv", "cmyk", "keyword"].forEach(function(space) {
+['rgb', 'hsl', 'hsv', 'cmyk', 'keyword'].forEach(function(space) {
    Converter.prototype[space] = function(vals) {
       return this.routeSpace(space, arguments);
    }
 });
 
 module.exports = convert;
-},{"4":4}],6:[function(require,module,exports){
+},{'4':4}],6:[function(require,module,exports){
 module.exports = {
-	"aliceblue": [240, 248, 255],
-	"antiquewhite": [250, 235, 215],
-	"aqua": [0, 255, 255],
-	"aquamarine": [127, 255, 212],
-	"azure": [240, 255, 255],
-	"beige": [245, 245, 220],
-	"bisque": [255, 228, 196],
-	"black": [0, 0, 0],
-	"blanchedalmond": [255, 235, 205],
-	"blue": [0, 0, 255],
-	"blueviolet": [138, 43, 226],
-	"brown": [165, 42, 42],
-	"burlywood": [222, 184, 135],
-	"cadetblue": [95, 158, 160],
-	"chartreuse": [127, 255, 0],
-	"chocolate": [210, 105, 30],
-	"coral": [255, 127, 80],
-	"cornflowerblue": [100, 149, 237],
-	"cornsilk": [255, 248, 220],
-	"crimson": [220, 20, 60],
-	"cyan": [0, 255, 255],
-	"darkblue": [0, 0, 139],
-	"darkcyan": [0, 139, 139],
-	"darkgoldenrod": [184, 134, 11],
-	"darkgray": [169, 169, 169],
-	"darkgreen": [0, 100, 0],
-	"darkgrey": [169, 169, 169],
-	"darkkhaki": [189, 183, 107],
-	"darkmagenta": [139, 0, 139],
-	"darkolivegreen": [85, 107, 47],
-	"darkorange": [255, 140, 0],
-	"darkorchid": [153, 50, 204],
-	"darkred": [139, 0, 0],
-	"darksalmon": [233, 150, 122],
-	"darkseagreen": [143, 188, 143],
-	"darkslateblue": [72, 61, 139],
-	"darkslategray": [47, 79, 79],
-	"darkslategrey": [47, 79, 79],
-	"darkturquoise": [0, 206, 209],
-	"darkviolet": [148, 0, 211],
-	"deeppink": [255, 20, 147],
-	"deepskyblue": [0, 191, 255],
-	"dimgray": [105, 105, 105],
-	"dimgrey": [105, 105, 105],
-	"dodgerblue": [30, 144, 255],
-	"firebrick": [178, 34, 34],
-	"floralwhite": [255, 250, 240],
-	"forestgreen": [34, 139, 34],
-	"fuchsia": [255, 0, 255],
-	"gainsboro": [220, 220, 220],
-	"ghostwhite": [248, 248, 255],
-	"gold": [255, 215, 0],
-	"goldenrod": [218, 165, 32],
-	"gray": [128, 128, 128],
-	"green": [0, 128, 0],
-	"greenyellow": [173, 255, 47],
-	"grey": [128, 128, 128],
-	"honeydew": [240, 255, 240],
-	"hotpink": [255, 105, 180],
-	"indianred": [205, 92, 92],
-	"indigo": [75, 0, 130],
-	"ivory": [255, 255, 240],
-	"khaki": [240, 230, 140],
-	"lavender": [230, 230, 250],
-	"lavenderblush": [255, 240, 245],
-	"lawngreen": [124, 252, 0],
-	"lemonchiffon": [255, 250, 205],
-	"lightblue": [173, 216, 230],
-	"lightcoral": [240, 128, 128],
-	"lightcyan": [224, 255, 255],
-	"lightgoldenrodyellow": [250, 250, 210],
-	"lightgray": [211, 211, 211],
-	"lightgreen": [144, 238, 144],
-	"lightgrey": [211, 211, 211],
-	"lightpink": [255, 182, 193],
-	"lightsalmon": [255, 160, 122],
-	"lightseagreen": [32, 178, 170],
-	"lightskyblue": [135, 206, 250],
-	"lightslategray": [119, 136, 153],
-	"lightslategrey": [119, 136, 153],
-	"lightsteelblue": [176, 196, 222],
-	"lightyellow": [255, 255, 224],
-	"lime": [0, 255, 0],
-	"limegreen": [50, 205, 50],
-	"linen": [250, 240, 230],
-	"magenta": [255, 0, 255],
-	"maroon": [128, 0, 0],
-	"mediumaquamarine": [102, 205, 170],
-	"mediumblue": [0, 0, 205],
-	"mediumorchid": [186, 85, 211],
-	"mediumpurple": [147, 112, 219],
-	"mediumseagreen": [60, 179, 113],
-	"mediumslateblue": [123, 104, 238],
-	"mediumspringgreen": [0, 250, 154],
-	"mediumturquoise": [72, 209, 204],
-	"mediumvioletred": [199, 21, 133],
-	"midnightblue": [25, 25, 112],
-	"mintcream": [245, 255, 250],
-	"mistyrose": [255, 228, 225],
-	"moccasin": [255, 228, 181],
-	"navajowhite": [255, 222, 173],
-	"navy": [0, 0, 128],
-	"oldlace": [253, 245, 230],
-	"olive": [128, 128, 0],
-	"olivedrab": [107, 142, 35],
-	"orange": [255, 165, 0],
-	"orangered": [255, 69, 0],
-	"orchid": [218, 112, 214],
-	"palegoldenrod": [238, 232, 170],
-	"palegreen": [152, 251, 152],
-	"paleturquoise": [175, 238, 238],
-	"palevioletred": [219, 112, 147],
-	"papayawhip": [255, 239, 213],
-	"peachpuff": [255, 218, 185],
-	"peru": [205, 133, 63],
-	"pink": [255, 192, 203],
-	"plum": [221, 160, 221],
-	"powderblue": [176, 224, 230],
-	"purple": [128, 0, 128],
-	"rebeccapurple": [102, 51, 153],
-	"red": [255, 0, 0],
-	"rosybrown": [188, 143, 143],
-	"royalblue": [65, 105, 225],
-	"saddlebrown": [139, 69, 19],
-	"salmon": [250, 128, 114],
-	"sandybrown": [244, 164, 96],
-	"seagreen": [46, 139, 87],
-	"seashell": [255, 245, 238],
-	"sienna": [160, 82, 45],
-	"silver": [192, 192, 192],
-	"skyblue": [135, 206, 235],
-	"slateblue": [106, 90, 205],
-	"slategray": [112, 128, 144],
-	"slategrey": [112, 128, 144],
-	"snow": [255, 250, 250],
-	"springgreen": [0, 255, 127],
-	"steelblue": [70, 130, 180],
-	"tan": [210, 180, 140],
-	"teal": [0, 128, 128],
-	"thistle": [216, 191, 216],
-	"tomato": [255, 99, 71],
-	"turquoise": [64, 224, 208],
-	"violet": [238, 130, 238],
-	"wheat": [245, 222, 179],
-	"white": [255, 255, 255],
-	"whitesmoke": [245, 245, 245],
-	"yellow": [255, 255, 0],
-	"yellowgreen": [154, 205, 50]
+	'aliceblue': [240, 248, 255],
+	'antiquewhite': [250, 235, 215],
+	'aqua': [0, 255, 255],
+	'aquamarine': [127, 255, 212],
+	'azure': [240, 255, 255],
+	'beige': [245, 245, 220],
+	'bisque': [255, 228, 196],
+	'black': [0, 0, 0],
+	'blanchedalmond': [255, 235, 205],
+	'blue': [0, 0, 255],
+	'blueviolet': [138, 43, 226],
+	'brown': [165, 42, 42],
+	'burlywood': [222, 184, 135],
+	'cadetblue': [95, 158, 160],
+	'chartreuse': [127, 255, 0],
+	'chocolate': [210, 105, 30],
+	'coral': [255, 127, 80],
+	'cornflowerblue': [100, 149, 237],
+	'cornsilk': [255, 248, 220],
+	'crimson': [220, 20, 60],
+	'cyan': [0, 255, 255],
+	'darkblue': [0, 0, 139],
+	'darkcyan': [0, 139, 139],
+	'darkgoldenrod': [184, 134, 11],
+	'darkgray': [169, 169, 169],
+	'darkgreen': [0, 100, 0],
+	'darkgrey': [169, 169, 169],
+	'darkkhaki': [189, 183, 107],
+	'darkmagenta': [139, 0, 139],
+	'darkolivegreen': [85, 107, 47],
+	'darkorange': [255, 140, 0],
+	'darkorchid': [153, 50, 204],
+	'darkred': [139, 0, 0],
+	'darksalmon': [233, 150, 122],
+	'darkseagreen': [143, 188, 143],
+	'darkslateblue': [72, 61, 139],
+	'darkslategray': [47, 79, 79],
+	'darkslategrey': [47, 79, 79],
+	'darkturquoise': [0, 206, 209],
+	'darkviolet': [148, 0, 211],
+	'deeppink': [255, 20, 147],
+	'deepskyblue': [0, 191, 255],
+	'dimgray': [105, 105, 105],
+	'dimgrey': [105, 105, 105],
+	'dodgerblue': [30, 144, 255],
+	'firebrick': [178, 34, 34],
+	'floralwhite': [255, 250, 240],
+	'forestgreen': [34, 139, 34],
+	'fuchsia': [255, 0, 255],
+	'gainsboro': [220, 220, 220],
+	'ghostwhite': [248, 248, 255],
+	'gold': [255, 215, 0],
+	'goldenrod': [218, 165, 32],
+	'gray': [128, 128, 128],
+	'green': [0, 128, 0],
+	'greenyellow': [173, 255, 47],
+	'grey': [128, 128, 128],
+	'honeydew': [240, 255, 240],
+	'hotpink': [255, 105, 180],
+	'indianred': [205, 92, 92],
+	'indigo': [75, 0, 130],
+	'ivory': [255, 255, 240],
+	'khaki': [240, 230, 140],
+	'lavender': [230, 230, 250],
+	'lavenderblush': [255, 240, 245],
+	'lawngreen': [124, 252, 0],
+	'lemonchiffon': [255, 250, 205],
+	'lightblue': [173, 216, 230],
+	'lightcoral': [240, 128, 128],
+	'lightcyan': [224, 255, 255],
+	'lightgoldenrodyellow': [250, 250, 210],
+	'lightgray': [211, 211, 211],
+	'lightgreen': [144, 238, 144],
+	'lightgrey': [211, 211, 211],
+	'lightpink': [255, 182, 193],
+	'lightsalmon': [255, 160, 122],
+	'lightseagreen': [32, 178, 170],
+	'lightskyblue': [135, 206, 250],
+	'lightslategray': [119, 136, 153],
+	'lightslategrey': [119, 136, 153],
+	'lightsteelblue': [176, 196, 222],
+	'lightyellow': [255, 255, 224],
+	'lime': [0, 255, 0],
+	'limegreen': [50, 205, 50],
+	'linen': [250, 240, 230],
+	'magenta': [255, 0, 255],
+	'maroon': [128, 0, 0],
+	'mediumaquamarine': [102, 205, 170],
+	'mediumblue': [0, 0, 205],
+	'mediumorchid': [186, 85, 211],
+	'mediumpurple': [147, 112, 219],
+	'mediumseagreen': [60, 179, 113],
+	'mediumslateblue': [123, 104, 238],
+	'mediumspringgreen': [0, 250, 154],
+	'mediumturquoise': [72, 209, 204],
+	'mediumvioletred': [199, 21, 133],
+	'midnightblue': [25, 25, 112],
+	'mintcream': [245, 255, 250],
+	'mistyrose': [255, 228, 225],
+	'moccasin': [255, 228, 181],
+	'navajowhite': [255, 222, 173],
+	'navy': [0, 0, 128],
+	'oldlace': [253, 245, 230],
+	'olive': [128, 128, 0],
+	'olivedrab': [107, 142, 35],
+	'orange': [255, 165, 0],
+	'orangered': [255, 69, 0],
+	'orchid': [218, 112, 214],
+	'palegoldenrod': [238, 232, 170],
+	'palegreen': [152, 251, 152],
+	'paleturquoise': [175, 238, 238],
+	'palevioletred': [219, 112, 147],
+	'papayawhip': [255, 239, 213],
+	'peachpuff': [255, 218, 185],
+	'peru': [205, 133, 63],
+	'pink': [255, 192, 203],
+	'plum': [221, 160, 221],
+	'powderblue': [176, 224, 230],
+	'purple': [128, 0, 128],
+	'rebeccapurple': [102, 51, 153],
+	'red': [255, 0, 0],
+	'rosybrown': [188, 143, 143],
+	'royalblue': [65, 105, 225],
+	'saddlebrown': [139, 69, 19],
+	'salmon': [250, 128, 114],
+	'sandybrown': [244, 164, 96],
+	'seagreen': [46, 139, 87],
+	'seashell': [255, 245, 238],
+	'sienna': [160, 82, 45],
+	'silver': [192, 192, 192],
+	'skyblue': [135, 206, 235],
+	'slateblue': [106, 90, 205],
+	'slategray': [112, 128, 144],
+	'slategrey': [112, 128, 144],
+	'snow': [255, 250, 250],
+	'springgreen': [0, 255, 127],
+	'steelblue': [70, 130, 180],
+	'tan': [210, 180, 140],
+	'teal': [0, 128, 128],
+	'thistle': [216, 191, 216],
+	'tomato': [255, 99, 71],
+	'turquoise': [64, 224, 208],
+	'violet': [238, 130, 238],
+	'wheat': [245, 222, 179],
+	'white': [255, 255, 255],
+	'whitesmoke': [245, 245, 245],
+	'yellow': [255, 255, 0],
+	'yellowgreen': [154, 205, 50]
 };
 },{}],7:[function(require,module,exports){
 /**
@@ -1711,8 +1711,8 @@ require(14)(Chart);
 
 window.Chart = module.exports = Chart;
 
-},{"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":16,"17":17,"18":18,"19":19,"20":20,"21":21,"22":22,"23":23,"24":24,"25":25,"26":26,"27":27,"28":28,"29":29,"30":30,"31":31,"32":32,"33":33,"34":34,"35":35,"36":36,"37":37,"38":38,"39":39,"40":40,"41":41,"42":42,"43":43,"8":8,"9":9}],8:[function(require,module,exports){
-"use strict";
+},{'10':10,'11':11,'12':12,'13':13,'14':14,'15':15,'16':16,'17':17,'18':18,'19':19,'20':20,'21':21,'22':22,'23':23,'24':24,'25':25,'26':26,'27':27,'28':28,'29':29,'30':30,'31':31,'32':32,'33':33,'34':34,'35':35,'36':36,'37':37,'38':38,'39':39,'40':40,'41':41,'42':42,'43':43,'8':8,'9':9}],8:[function(require,module,exports){
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1724,7 +1724,7 @@ module.exports = function(Chart) {
 
 };
 },{}],9:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1735,7 +1735,7 @@ module.exports = function(Chart) {
 
 };
 },{}],10:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1747,7 +1747,7 @@ module.exports = function(Chart) {
 
 };
 },{}],11:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1759,7 +1759,7 @@ module.exports = function(Chart) {
 
 };
 },{}],12:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1771,7 +1771,7 @@ module.exports = function(Chart) {
 
 };
 },{}],13:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 	
@@ -1785,7 +1785,7 @@ module.exports = function(Chart) {
 };
 
 },{}],14:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1796,14 +1796,14 @@ module.exports = function(Chart) {
 
 		scales: {
 			xAxes: [{
-				type: "linear", // scatter should not use a category axis
-				position: "bottom",
-				id: "x-axis-1" // need an ID so datasets can reference the scale
+				type: 'linear', // scatter should not use a category axis
+				position: 'bottom',
+				id: 'x-axis-1' // need an ID so datasets can reference the scale
 			}],
 			yAxes: [{
-				type: "linear",
-				position: "left",
-				id: "y-axis-1"
+				type: 'linear',
+				position: 'left',
+				id: 'y-axis-1'
 			}]
 		},
 
@@ -1833,7 +1833,7 @@ module.exports = function(Chart) {
 
 };
 },{}],15:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -1841,12 +1841,12 @@ module.exports = function(Chart) {
 
 	Chart.defaults.bar = {
 		hover: {
-			mode: "label"
+			mode: 'label'
 		},
 
 		scales: {
 			xAxes: [{
-				type: "category",
+				type: 'category',
 
 				// Specific to Bar Controller
 				categoryPercentage: 0.8,
@@ -1858,7 +1858,7 @@ module.exports = function(Chart) {
 				}
 			}],
 			yAxes: [{
-				type: "linear"
+				type: 'linear'
 			}]
 		}
 	};
@@ -2121,17 +2121,17 @@ module.exports = function(Chart) {
 	// it extends bar (like pie extends doughnut)
 	Chart.defaults.horizontalBar = {
 		hover: {
-			mode: "label"
+			mode: 'label'
 		},
 
 		scales: {
 			xAxes: [{
-				type: "linear",
-				position: "bottom"
+				type: 'linear',
+				position: 'bottom'
 			}],
 			yAxes: [{
-				position: "left",
-				type: "category",
+				position: 'left',
+				type: 'category',
 
 				// Specific to Horizontal Bar Controller
 				categoryPercentage: 0.8,
@@ -2417,7 +2417,7 @@ module.exports = function(Chart) {
 };
 
 },{}],16:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -2425,19 +2425,19 @@ module.exports = function(Chart) {
 
 	Chart.defaults.bubble = {
 		hover: {
-			mode: "single"
+			mode: 'single'
 		},
 
 		scales: {
 			xAxes: [{
-				type: "linear", // bubble should probably use a linear scale by default
-				position: "bottom",
-				id: "x-axis-0" // need an ID so datasets can reference the scale
+				type: 'linear', // bubble should probably use a linear scale by default
+				position: 'bottom',
+				id: 'x-axis-0' // need an ID so datasets can reference the scale
 			}],
 			yAxes: [{
-				type: "linear",
-				position: "left",
-				id: "y-axis-0"
+				type: 'linear',
+				position: 'left',
+				id: 'y-axis-0'
 			}]
 		},
 
@@ -2541,7 +2541,7 @@ module.exports = function(Chart) {
 };
 
 },{}],17:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -2578,7 +2578,7 @@ module.exports = function(Chart) {
 			}
 
 			text.push('</ul>');
-			return text.join("");
+			return text.join('');
 		},
 		legend: {
 			labels: {
@@ -2812,7 +2812,7 @@ module.exports = function(Chart) {
 };
 
 },{}],18:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -2822,16 +2822,16 @@ module.exports = function(Chart) {
 		showLines: true,
 
 		hover: {
-			mode: "label"
+			mode: 'label'
 		},
 
 		scales: {
 			xAxes: [{
-				type: "category",
+				type: 'category',
 				id: 'x-axis-0'
 			}],
 			yAxes: [{
-				type: "linear",
+				type: 'linear',
 				id: 'y-axis-0'
 			}]
 		}
@@ -3132,7 +3132,7 @@ module.exports = function(Chart) {
 };
 
 },{}],19:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -3141,7 +3141,7 @@ module.exports = function(Chart) {
 	Chart.defaults.polarArea = {
 
 		scale: {
-			type: "radialLinear",
+			type: 'radialLinear',
 			lineArc: true // so that lines are circular
 		},
 
@@ -3171,7 +3171,7 @@ module.exports = function(Chart) {
 			}
 
 			text.push('</ul>');
-			return text.join("");
+			return text.join('');
 		},
 		legend: {
 			labels: {
@@ -3349,7 +3349,7 @@ module.exports = function(Chart) {
 };
 
 },{}],20:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -3357,7 +3357,7 @@ module.exports = function(Chart) {
 
 	Chart.defaults.radar = {
 		scale: {
-			type: "radialLinear"
+			type: 'radialLinear'
 		},
 		elements: {
 			line: {
@@ -3540,7 +3540,7 @@ module.exports = function(Chart) {
 
 },{}],21:[function(require,module,exports){
 /*global window: false */
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -3548,7 +3548,7 @@ module.exports = function(Chart) {
 
 	Chart.defaults.global.animation = {
 		duration: 1000,
-		easing: "easeOutQuart",
+		easing: 'easeOutQuart',
 		onProgress: helpers.noop,
 		onComplete: helpers.noop
 	};
@@ -3556,7 +3556,7 @@ module.exports = function(Chart) {
 	Chart.Animation = Chart.Element.extend({
 		currentStep: null, // the current animation step
 		numSteps: 60, // default number of steps
-		easing: "", // the easing to use for this animation
+		easing: '', // the easing to use for this animation
 		render: null, // render function used by the animation service
 
 		onAnimationProgress: null, // user specified callback to fire on each step of the animation
@@ -3671,7 +3671,7 @@ module.exports = function(Chart) {
 	};
 };
 },{}],22:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -4314,7 +4314,7 @@ module.exports = function(Chart) {
 };
 
 },{}],23:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -4480,7 +4480,7 @@ module.exports = function(Chart) {
 	Chart.DatasetController.extend = helpers.inherits;
 };
 },{}],24:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -4588,7 +4588,7 @@ module.exports = function(Chart) {
 },{}],25:[function(require,module,exports){
 /*global window: false */
 /*global document: false */
-"use strict";
+'use strict';
 
 var color = require(3);
 
@@ -4671,7 +4671,7 @@ module.exports = function(Chart) {
 						}
 					});
 
-				} else if (base.hasOwnProperty(key) && typeof base[key] === "object" && base[key] !== null && typeof value === "object") {
+				} else if (base.hasOwnProperty(key) && typeof base[key] === 'object' && base[key] !== null && typeof value === 'object') {
 					// If we are overwriting an object with an object, do a merge of the properties.
 					base[key] = helpers.configMerge(base[key], value);
 
@@ -4711,7 +4711,7 @@ module.exports = function(Chart) {
 						base[key].push(helpers.configMerge(Chart.scaleService.getScaleDefaults(axisType), valueObj));
 					});
 				}
-			} else if (base.hasOwnProperty(key) && typeof base[key] === "object" && base[key] !== null && typeof value === "object") {
+			} else if (base.hasOwnProperty(key) && typeof base[key] === 'object' && base[key] !== null && typeof value === 'object') {
 				// If we are overwriting an object with an object, do a merge of the properties.
 				base[key] = helpers.configMerge(base[key], value);
 
@@ -4800,7 +4800,7 @@ module.exports = function(Chart) {
 	helpers.inherits = function(extensions) {
 		//Basic javascript inheritance based on the model created in Backbone.js
 		var parent = this;
-		var ChartElement = (extensions && extensions.hasOwnProperty("constructor")) ? extensions.constructor : function() {
+		var ChartElement = (extensions && extensions.hasOwnProperty('constructor')) ? extensions.constructor : function() {
 			return parent.apply(this, arguments);
 		};
 
@@ -5230,18 +5230,18 @@ module.exports = function(Chart) {
 		if (node.addEventListener) {
 			node.addEventListener(eventType, method);
 		} else if (node.attachEvent) {
-			node.attachEvent("on" + eventType, method);
+			node.attachEvent('on' + eventType, method);
 		} else {
-			node["on" + eventType] = method;
+			node['on' + eventType] = method;
 		}
 	};
 	helpers.removeEvent = function(node, eventType, handler) {
 		if (node.removeEventListener) {
 			node.removeEventListener(eventType, handler, false);
 		} else if (node.detachEvent) {
-			node.detachEvent("on" + eventType, handler);
+			node.detachEvent('on' + eventType, handler);
 		} else {
-			node["on" + eventType] = helpers.noop;
+			node['on' + eventType] = helpers.noop;
 		}
 	};
 	helpers.bindEvents = function(chartInstance, arrayOfEvents, handler) {
@@ -5362,7 +5362,7 @@ module.exports = function(Chart) {
 		chart.ctx.clearRect(0, 0, chart.width, chart.height);
 	};
 	helpers.fontString = function(pixelSize, fontStyle, fontFamily) {
-		return fontStyle + " " + pixelSize + "px " + fontFamily;
+		return fontStyle + ' ' + pixelSize + 'px ' + fontFamily;
 	};
 	helpers.longestText = function(ctx, font, arrayOfThings, cache) {
 		cache = cache || {};
@@ -5534,8 +5534,8 @@ module.exports = function(Chart) {
 	};
 };
 
-},{"3":3}],26:[function(require,module,exports){
-"use strict";
+},{'3':3}],26:[function(require,module,exports){
+'use strict';
 
 module.exports = function() {
 
@@ -5552,7 +5552,7 @@ module.exports = function() {
 
 		// Support a canvas domnode
 		if (context.getContext) {
-			context = context.getContext("2d");
+			context = context.getContext('2d');
 		}
 
 		me.ctx = context;
@@ -5604,7 +5604,7 @@ module.exports = function() {
 			responsive: true,
 			responsiveAnimationDuration: 0,
 			maintainAspectRatio: true,
-			events: ["mousemove", "mouseout", "click", "touchstart", "touchmove"],
+			events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
 			hover: {
 				onHover: null,
 				mode: 'single',
@@ -5613,7 +5613,7 @@ module.exports = function() {
 			onClick: null,
 			defaultColor: 'rgba(0,0,0,0.1)',
 			defaultFontColor: '#666',
-			defaultFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+			defaultFontFamily: '\'Helvetica Neue\', \'Helvetica\', \'Arial\', sans-serif',
 			defaultFontSize: 12,
 			defaultFontStyle: 'normal',
 			showLines: true,
@@ -5634,7 +5634,7 @@ module.exports = function() {
 				}
 				text.push('</ul>');
 
-				return text.join("");
+				return text.join('');
 			}
 		}
 	};
@@ -5646,7 +5646,7 @@ module.exports = function() {
 };
 
 },{}],27:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -5684,21 +5684,21 @@ module.exports = function(Chart) {
 			var yPadding = 0;
 
 			var leftBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position === "left";
+				return box.options.position === 'left';
 			});
 			var rightBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position === "right";
+				return box.options.position === 'right';
 			});
 			var topBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position === "top";
+				return box.options.position === 'top';
 			});
 			var bottomBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position === "bottom";
+				return box.options.position === 'bottom';
 			});
 
 			// Boxes that overlay the chartarea such as the radialLinear scale
 			var chartAreaBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position === "chartArea";
+				return box.options.position === 'chartArea';
 			});
 
 			// Ensure that full width boxes are at the very top / bottom
@@ -5971,7 +5971,7 @@ module.exports = function(Chart) {
 };
 
 },{}],28:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -6170,7 +6170,7 @@ module.exports = function(Chart) {
 					var lineWidths = me.lineWidths = [0];
 					var totalHeight = me.legendItems.length ? fontSize + (labelOpts.padding) : 0;
 
-					ctx.textAlign = "left";
+					ctx.textAlign = 'left';
 					ctx.textBaseline = 'top';
 
 					helpers.each(me.legendItems, function(legendItem, i) {
@@ -6239,7 +6239,7 @@ module.exports = function(Chart) {
 
 		// Shared Methods
 		isHorizontal: function() {
-			return this.options.position === "top" || this.options.position === "bottom";
+			return this.options.position === 'top' || this.options.position === 'bottom';
 		},
 
 		// Actualy draw the legend on the canvas
@@ -6264,7 +6264,7 @@ module.exports = function(Chart) {
 					labelFont = helpers.fontString(fontSize, fontStyle, fontFamily);
 
 				// Canvas setup
-				ctx.textAlign = "left";
+				ctx.textAlign = 'left';
 				ctx.textBaseline = 'top';
 				ctx.lineWidth = 0.5;
 				ctx.strokeStyle = fontColor; // for strikethrough effect
@@ -6412,7 +6412,7 @@ module.exports = function(Chart) {
 };
 
 },{}],29:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -6543,7 +6543,7 @@ module.exports = function(Chart) {
 };
 
 },{}],30:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -6551,19 +6551,19 @@ module.exports = function(Chart) {
 
 	Chart.defaults.scale = {
 		display: true,
-		position: "left",
+		position: 'left',
 
 		// grid line settings
 		gridLines: {
 			display: true,
-			color: "rgba(0, 0, 0, 0.1)",
+			color: 'rgba(0, 0, 0, 0.1)',
 			lineWidth: 1,
 			drawBorder: true,
 			drawOnChartArea: true,
 			drawTicks: true,
 			tickMarkLength: 10,
 			zeroLineWidth: 1,
-			zeroLineColor: "rgba(0,0,0,0.25)",
+			zeroLineColor: 'rgba(0,0,0,0.25)',
 			offsetGridLines: false
 		},
 
@@ -6931,7 +6931,7 @@ module.exports = function(Chart) {
 
 		// Shared Methods
 		isHorizontal: function() {
-			return this.options.position === "top" || this.options.position === "bottom";
+			return this.options.position === 'top' || this.options.position === 'bottom';
 		},
 		isFullWidth: function() {
 			return (this.options.fullWidth);
@@ -6948,7 +6948,7 @@ module.exports = function(Chart) {
 				return NaN;
 			}
 			// If it is in fact an object, dive in one more level
-			if (typeof(rawValue) === "object") {
+			if (typeof(rawValue) === 'object') {
 				if ((rawValue instanceof Date) || (rawValue.isValid)) {
 					return rawValue;
 				} else {
@@ -7098,10 +7098,10 @@ module.exports = function(Chart) {
 			}
 
 
-			var xTickStart = options.position === "right" ? me.left : me.right - tl;
-			var xTickEnd = options.position === "right" ? me.left + tl : me.right;
-			var yTickStart = options.position === "bottom" ? me.top : me.bottom - tl;
-			var yTickEnd = options.position === "bottom" ? me.top + tl : me.bottom;
+			var xTickStart = options.position === 'right' ? me.left : me.right - tl;
+			var xTickEnd = options.position === 'right' ? me.left + tl : me.right;
+			var yTickStart = options.position === 'bottom' ? me.top : me.bottom - tl;
+			var yTickEnd = options.position === 'bottom' ? me.top + tl : me.bottom;
 
 			helpers.each(me.ticks, function(label, index) {
 				// If the callback returned a null or undefined value, do not draw this line
@@ -7299,7 +7299,7 @@ module.exports = function(Chart) {
 };
 
 },{}],31:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -7340,7 +7340,7 @@ module.exports = function(Chart) {
 	};
 };
 },{}],32:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -7480,7 +7480,7 @@ module.exports = function(Chart) {
 		// Shared Methods
 		isHorizontal: function() {
 			var pos = this.options.position;
-			return pos === "top" || pos === "bottom";
+			return pos === 'top' || pos === 'bottom';
 		},
 
 		// Actualy draw the title block on the canvas
@@ -7548,7 +7548,7 @@ module.exports = function(Chart) {
 };
 
 },{}],33:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -7558,20 +7558,20 @@ module.exports = function(Chart) {
 		enabled: true,
 		custom: null,
 		mode: 'single',
-		backgroundColor: "rgba(0,0,0,0.8)",
-		titleFontStyle: "bold",
+		backgroundColor: 'rgba(0,0,0,0.8)',
+		titleFontStyle: 'bold',
 		titleSpacing: 2,
 		titleMarginBottom: 6,
-		titleFontColor: "#fff",
-		titleAlign: "left",
+		titleFontColor: '#fff',
+		titleAlign: 'left',
 		bodySpacing: 2,
-		bodyFontColor: "#fff",
-		bodyAlign: "left",
-		footerFontStyle: "bold",
+		bodyFontColor: '#fff',
+		bodyAlign: 'left',
+		footerFontStyle: 'bold',
 		footerSpacing: 2,
 		footerMarginTop: 6,
-		footerFontColor: "#fff",
-		footerAlign: "left",
+		footerFontColor: '#fff',
+		footerAlign: 'left',
 		yPadding: 6,
 		xPadding: 6,
 		yAlign : 'center',
@@ -8117,7 +8117,7 @@ module.exports = function(Chart) {
 
 			if (title.length) {
 				ctx.textAlign = vm._titleAlign;
-				ctx.textBaseline = "top";
+				ctx.textBaseline = 'top';
 
 				var titleFontSize = vm.titleFontSize,
 					titleSpacing = vm.titleSpacing;
@@ -8143,7 +8143,7 @@ module.exports = function(Chart) {
 			var body = vm.body;
 
 			ctx.textAlign = vm._bodyAlign;
-			ctx.textBaseline = "top";
+			ctx.textBaseline = 'top';
 
 			var bodyFontColor = helpers.color(vm.bodyFontColor);
 			var textColor = bodyFontColor.alpha(opacity * bodyFontColor.alpha()).rgbString();
@@ -8205,7 +8205,7 @@ module.exports = function(Chart) {
 				pt.y += vm.footerMarginTop;
 
 				ctx.textAlign = vm._footerAlign;
-				ctx.textBaseline = "top";
+				ctx.textBaseline = 'top';
 
 				var footerFontColor = helpers.color(vm.footerFontColor);
 				ctx.fillStyle = footerFontColor.alpha(opacity * footerFontColor.alpha()).rgbString();
@@ -8262,7 +8262,7 @@ module.exports = function(Chart) {
 };
 
 },{}],34:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart, moment) {
 
@@ -8271,7 +8271,7 @@ module.exports = function(Chart, moment) {
 
   globalOpts.elements.arc = {
     backgroundColor: globalOpts.defaultColor,
-    borderColor: "#fff",
+    borderColor: '#fff',
     borderWidth: 2
   };
 
@@ -8357,7 +8357,7 @@ module.exports = function(Chart, moment) {
 };
 
 },{}],35:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -8523,7 +8523,7 @@ module.exports = function(Chart) {
 	});
 };
 },{}],36:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -8674,7 +8674,7 @@ module.exports = function(Chart) {
 };
 
 },{}],37:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -8769,14 +8769,14 @@ module.exports = function(Chart) {
 
 };
 },{}],38:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
 	// Default config for a category scale
 	var defaultConfig = {
-		position: "bottom"
+		position: 'bottom'
 	};
 
 	var DatasetScale = Chart.Scale.extend({
@@ -8867,18 +8867,18 @@ module.exports = function(Chart) {
 		}
 	});
 
-	Chart.scaleService.registerScaleType("category", DatasetScale, defaultConfig);
+	Chart.scaleService.registerScaleType('category', DatasetScale, defaultConfig);
 
 };
 },{}],39:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
 
 	var defaultConfig = {
-		position: "left",
+		position: 'left',
 		ticks: {
 			callback: function(tickValue, index, ticks) {
 				// If we have lots of ticks, don't use the ones
@@ -9068,11 +9068,11 @@ module.exports = function(Chart) {
 			return this.getPixelForValue(this.ticksAsNumbers[index], null, null, includeOffset);
 		}
 	});
-	Chart.scaleService.registerScaleType("linear", LinearScale, defaultConfig);
+	Chart.scaleService.registerScaleType('linear', LinearScale, defaultConfig);
 
 };
 },{}],40:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -9200,14 +9200,14 @@ module.exports = function(Chart) {
 	});
 };
 },{}],41:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
 
 	var defaultConfig = {
-		position: "left",
+		position: 'left',
 
 		// label settings
 		ticks: {
@@ -9433,11 +9433,11 @@ module.exports = function(Chart) {
 			return value;
 		}
 	});
-	Chart.scaleService.registerScaleType("logarithmic", LogarithmicScale, defaultConfig);
+	Chart.scaleService.registerScaleType('logarithmic', LogarithmicScale, defaultConfig);
 
 };
 },{}],42:[function(require,module,exports){
-"use strict";
+'use strict';
 
 module.exports = function(Chart) {
 
@@ -9450,11 +9450,11 @@ module.exports = function(Chart) {
 		//Boolean - Whether to animate scaling the chart from the centre
 		animate: true,
 		lineArc: false,
-		position: "chartArea",
+		position: 'chartArea',
 
 		angleLines: {
 			display: true,
-			color: "rgba(0, 0, 0, 0.1)",
+			color: 'rgba(0, 0, 0, 0.1)',
 			lineWidth: 1
 		},
 
@@ -9464,7 +9464,7 @@ module.exports = function(Chart) {
 			showLabelBackdrop: true,
 
 			//String - The colour of the label backdrop
-			backdropColor: "rgba(255,255,255,0.75)",
+			backdropColor: 'rgba(255,255,255,0.75)',
 
 			//Number - The backdrop padding above & below the label in pixels
 			backdropPaddingY: 2,
@@ -9777,7 +9777,7 @@ module.exports = function(Chart) {
 							}
 
 							ctx.textAlign = 'center';
-							ctx.textBaseline = "middle";
+							ctx.textBaseline = 'middle';
 							ctx.fillStyle = tickFontColor;
 							ctx.fillText(label, me.xCenter, yHeight);
 						}
@@ -9844,13 +9844,13 @@ module.exports = function(Chart) {
 			}
 		}
 	});
-	Chart.scaleService.registerScaleType("radialLinear", LinearRadialScale, defaultConfig);
+	Chart.scaleService.registerScaleType('radialLinear', LinearRadialScale, defaultConfig);
 
 };
 
 },{}],43:[function(require,module,exports){
 /*global window: false */
-"use strict";
+'use strict';
 
 var moment = require(1);
 moment = typeof(moment) === 'function' ? moment : window.moment;
@@ -9890,7 +9890,7 @@ module.exports = function(Chart) {
 	};
 
 	var defaultConfig = {
-		position: "bottom",
+		position: 'bottom',
 
 		time: {
 			parser: false, // false == a pattern string from http://momentjs.com/docs/#/parsing/string-format/ or a custom callback that converts its argument to a moment
@@ -10228,16 +10228,16 @@ module.exports = function(Chart) {
 			}
 			// Custom parsing (return an instance of moment)
 			if (typeof me.options.time.format !== 'string' && me.options.time.format.call) {
-				console.warn("options.time.format is deprecated and replaced by options.time.parser. See http://nnnick.github.io/Chart.js/docs-v2/#scales-time-scale");
+				console.warn('options.time.format is deprecated and replaced by options.time.parser. See http://nnnick.github.io/Chart.js/docs-v2/#scales-time-scale');
 				return me.options.time.format(label);
 			}
 			// Moment format parsing
 			return moment(label, me.options.time.format);
 		}
 	});
-	Chart.scaleService.registerScaleType("time", TimeScale, defaultConfig);
+	Chart.scaleService.registerScaleType('time', TimeScale, defaultConfig);
 
 };
 
-},{"1":1}]},{},[7])(7)
+},{'1':1}]},{},[7])(7)
 });
