@@ -3,14 +3,11 @@
 //Expose Jquery Globally.
 window.$ = window.jQuery = require('jquery');
 
-const moment = require('./moment');
-const pikaday = require('./pikaday');
+// const moment = require('./moment');
+// const pikaday = require('./pikaday');
 const Handlebars = require('./handlebars');
 const sticky = require('./jquery.sticky');
 
-//Pikaday
-var startDate = new Pikaday({ field: document.getElementById('startdate') });
-var endDate = new Pikaday({ field: document.getElementById('enddate') });
 
 //Main Nav Sticker
 $(document).ready(function(){
