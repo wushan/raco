@@ -7,27 +7,12 @@ block content
 	main
 		#main
 			section
-				.container.full-page.vertical-middle(style='background-image: url(http://unsplash.it/1440/680)')
-					.container-inner
-						//Custom
-						#logo
-							img(src='images/weypro.svg')
-						form.login-form
-							.title
-								h1 Login
-							.controlgroup
-								label Username
-								.controls
-									input(type='text', placeholder='Username')
-							.controlgroup
-								label Password
-								.controls
-									input(type='password', placeholder='Password')
-							.controlgroup
-								label Captcha
-								.controls
-									img.captcha-image(src='http://unsplash.it/90/36')
-									input#CAPTCHA(type='password', placeholder='Captcha')
-							.call-action
-								button.btn.basic.full(type='submit') SUBMIT
-								a(href='main.html') go		
+				.container.restrict
+					h1 Normal Paragraph
+					p While you're waiting, dive into how to use Font Awesome. You'll want to add your embed code within the of each template or page that you want to use Font Awesome on. Then, check out the Font Awesome icons and examples to learn how drop icons right into your UI.
+					h1 Vue.js TRYOUT
+					button#modify(type='button') Modify
+					ul#example-1
+						li(v-for="item in items")
+							|	{{ item.id }} + 
+							span(v-if="greeting") xxx

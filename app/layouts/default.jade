@@ -2,7 +2,7 @@ doctype html
 html.no-js
 	head
 		meta(charset='utf-8')
-		title IRON Co.,ltd. Supplier Quality Management System
+		title Gulp + Jade + Browserify + Vue Starter Boilerplate
 		meta(name='description' content='')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 		link(rel='apple-touch-icon' href='apple-touch-icon.png')
@@ -29,7 +29,7 @@ html.no-js
 						.head-bar
 							.container.row
 								#brand
-									a(href='javascript:;') IRON
+									a(href='javascript:;') Brand
 								#miscellaneous
 									a#mobileMenu-trigger(href='javascript:;')
 										i.fa.fa-bars.fa-2x
@@ -50,7 +50,14 @@ html.no-js
 		// build:js scripts/main.js
 		script(src="scripts/bundle.js")
 		// endbuild
+
+		// FontAwsome CDN
 		script(src="https://use.fontawesome.com/a5a9e13757.js")
+
+		// Vue.js CDN
+		script(src="https://npmcdn.com/vue/dist/vue.min.js")
+
+		block pagescripts
 
 		
 
