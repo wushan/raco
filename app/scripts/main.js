@@ -5,8 +5,12 @@ window.$ = window.jQuery = require('jquery');
 
 // const moment = require('./moment');
 // const pikaday = require('./pikaday');
+const slick = require('./slick');
 const sticky = require('./jquery.sticky');
 const Vue = require('./vue');
+
+
+
 //Main Nav Sticker
 $(document).ready(function(){
   $('.sticker').sticky({
@@ -20,6 +24,12 @@ $(document).ready(function(){
     $('.sticker').sticky('update');
   });
 });
+
+
+//Intro Slider
+$('.intro-slider').slick({
+    
+  });
 
 var data = {
     "greeting": true,
