@@ -1,107 +1,28 @@
 @include susy-breakpoint(768px, 12) {
-	#introslider {
-		.overlay-layer {
-			#brand {
-				a {
-					display: block;
-				}
-				.caption {
-					border-top: 1px solid $white;
-					padding-top: .5em;
-					margin-top: 1em;
-					font-size: .8em;
-					font-weight: 100;
-					color: $white;
-					// word-break: break-word;
-					width: 174px;
-					p {
-						margin: 0;
-						// word-break: break-word;
-					}
-				}
-			}
-			.sharebar {
-				left: 0;
-				right: 0;
-				text-align: right;
-				padding: 0 2em;
-				// margin: 0;
-				// padding: 0;
-				// position: absolute;
-				// top: 4em;
-				// right: .7em;
-				// z-index: 9999;
-				// li {
-				// 	display: block;
-				// }
-			}
-		}
-	}
-	#fun {
-		.col {
-			&:nth-child(2n) {
-				.block {
-					&:first-child {
-						@include last;
-					}
-				}
-			}
+	#intro {
+		.intro-ads {
 			.block {
-				@include span(6 of 12 0);
-				box-sizing: border-box;
-				padding: 1em 2em;
+				
 				p {
-					display: block;
-				}
-				&:last-child {
-					position: static;
-					background-color: $white;
-					color: $black;
-					box-sizing: border-box;
-					padding: 30px;
+					padding: 0;
+					&:first-child {
+						margin-top: 0;
+					}
+					&:last-child {
+						margin-bottom: 0;
+					}
 				}
 			}
 		}
 	}
-	#reservation {
-		.main {
-			.block {
-				@include gallery(4 of 12 1);
-			}
-		}
-	}
-	#list {
-	    .grid-sizer {
-	      width: 18.8%;
-	    }
-	    .gutter-sizer {
-	      width: 1%;
-	    }
+	#product-category {
+		.product-category-wrapper {
 
-	    .block {
-	      width: 18.8%;
-	      a {
-	        display: block;
-	      }
-	      img {
-	        filter: grayscale(50%);
-	        width: 100%;
-	      }
-	      &.wide {
-	        width: 49.5%;
-	      }
-	      .header {
-	        padding: .5em;
-	        text-align: left;
-	      }
-	    }
-	}
-	#about {
-		// .block {
-		// 	@include span(6 of 12);
-		// 	&:last-child {
-		// 		@include last;
-		// 	}
-		// }
+		}
+		.product-category-inner {
+			.product-category {
+				@include span(6 of 12 0);
+			}
+		}
 	}
 }

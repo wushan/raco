@@ -1,6 +1,6 @@
 //Basic Colors // Do Not Modify
 $white: #ffffff;
-$black: #000000;
+$black: #1a1a1a;
 $gray: #cccccc;
 $smokygray: #f7f7f7;
 $lightgray: #EEEEEE;
@@ -9,8 +9,12 @@ $darkestgray: #3e3e3e;
 
 //Set Main Color
 $main: #1565c0;
-$yellow: #ffd150;
-
+$yellow: #F6D600;
+$green: #059B9A;
+$blue: #0B55AA;
+$red: #E8373D;
+$orange: #ED6D1F;
+$purple: #A691C4;
 //
 $main-dark: darken($main, 20%);
 $main-light: lighten($main, 20%);
@@ -20,3 +24,4 @@ $main-light: lighten($main, 20%);
 //Fonts
 $sans-serif: "proxima-nova", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;
 $brandon: "brandon-grotesque", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;
+$adelle: "adelle", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;

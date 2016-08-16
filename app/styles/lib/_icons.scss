@@ -1,6 +1,11 @@
 *[class^="icons-"] {
 	display: inline-block;
 	vertical-align: middle;
+	& + span {
+		display: block;
+		font-size: .8em;
+		color: $blue;
+	}
 }
 //Icons using retina-sprites mixin
 .icons-mobile-btn {
@@ -9,15 +14,18 @@
 
 //Icons using retina-sprites mixin
 .icons-facebook {
-	@include sprite($facebook);
+	@include sprite($icon-fb);
 }
-.icons-instagram {
-	@include sprite($instagram);
+.icons-linkedin {
+	@include sprite($icon-linkedin);
 }
-.icons-twitter {
-	@include sprite($twitter);
+.icons-google {
+	@include sprite($icon-google);
 }
-.icons-mail {
-	@include sprite($mail);
+.icons-youtube {
+	@include sprite($icon-youtube);
+}
+.icons-arrow-down {
+	@include sprite($icon-arrow-down);
 }
 

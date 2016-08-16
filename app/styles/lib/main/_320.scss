@@ -4,5 +4,221 @@
 		img {
 			width: 100%;
 		}
+		.slide {
+			a {
+				display: block;
+			}
+		}
+	}
+	.intro-ads {
+		width: 100%;
+		.block {
+			color: $blue;
+			background-color: $smokygray;
+			text-align: center;
+			font-family: $adelle;
+			p {
+				padding: 1em 0;
+				&:first-child {
+					margin-top: 0;
+				}
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			a {
+				color: $green;
+				font-size: .9em;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.intro-slogan {
+		background-image: url('../images/background/tools-bg-w.png');
+		background-repeat: repeat;
+		background-size: auto 100%;
+		background-position: center;
+		text-align: center;
+		font-family: $adelle;
+		color: $blue;
+		padding: 6em 0;
+		position: relative;
+		h1 {
+			font-weight: 600;
+			small {
+				display: block;
+				font-size: .5em;
+			}
+		}
+		.learn-more {
+			position: absolute;
+			bottom: 1em;
+			left: 0;
+			right: 0;
+		}
+	}
+}
+
+//Product-Category
+#product-category {
+	.product-category {
+		background-size: 102% auto;
+		background-position: center;
+		position: relative;
+		overflow: hidden;
+		transition: .6s all ease-out;
+		&:hover, &:active {
+			background-size: 120% auto;
+			.cate-sticker {
+				top: 0;
+			}
+		}
+		img {
+			width: 100%;
+		}
+		.cate-sticker {
+			@extend .transition;
+			background-color: $green;
+			color: $white;
+			width: 140px;
+			height: 140px;
+			display: block;
+			border-radius: 50%;
+			position: absolute;
+			top: 150%;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			text-align: center;
+			font-size: 0;
+			overflow: hidden;
+			box-shadow: 0 6px 12px -6px rgba($black, .66);
+			&:before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				width: 0;
+				height: 100%;
+			}
+			&:after {
+				content: '';
+				width: 140px;
+				height: 70px;
+				border-radius: 70px 70px 0 0;
+				background-color: darken($green, 4%);
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1;
+				transform-origin: 50% 100%;
+				transform: rotate(60deg);
+			}
+			span {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 1rem;
+				color: rgba($white, .7);
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+	.product-category-inner {
+		.blue-line, .green-line {
+			@extend .clr;
+		}
+		//Specific Colours
+		.blue-line {
+			.product-category {
+				&:nth-child(2) {
+					.cate-sticker {
+						background-color: $yellow;
+						color: $black;
+						&:after {
+							background-color: darken($yellow, 4%);
+						}
+						span {
+							color: rgba($black, .7);
+						}
+					}
+				}
+				&:nth-child(3) {
+					.cate-sticker {
+						background-color: $smokygray;
+						color: $black;
+						&:after {
+							background-color: darken($smokygray, 4%);
+						}
+						span {
+							color: rgba($black, .7);
+						}
+					}
+				}
+				&:nth-child(4) {
+					.cate-sticker {
+						background-color: $black;
+						color: $black;
+						&:after {
+							background-color: darken($black, 4%);
+						}
+						span {
+							color: rgba($white, .7);
+						}
+					}
+				}
+			}
+		}
+		.green-line {
+			.product-category {
+				&:nth-child(2) {
+					.cate-sticker {
+						background-color: $red;
+						color: $black;
+						&:after {
+							background-color: darken($red, 4%);
+						}
+						span {
+							color: rgba($white, .7);
+						}
+					}
+				}
+				&:nth-child(3) {
+					.cate-sticker {
+						background-color: $orange;
+						color: $black;
+						&:after {
+							background-color: darken($orange, 4%);
+						}
+						span {
+							color: rgba($white, .7);
+						}
+					}
+				}
+				&:nth-child(4) {
+					.cate-sticker {
+						background-color: $purple;
+						color: $black;
+						&:after {
+							background-color: darken($purple, 4%);
+						}
+						span {
+							color: rgba($white, .7);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//Stand Alone
+.share-links {
+	a {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 .3em;
 	}
 }

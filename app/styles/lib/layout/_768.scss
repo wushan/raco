@@ -97,6 +97,7 @@
   }
   .table-c {
     display: table-cell;
+    vertical-align: middle;
   }
   .t-1-10 {
     width: 10%;
@@ -115,6 +116,9 @@
   }
   .t-5-10 {
     width: 50%;
+  }
+  .t-4-12 {
+    width: 33.33%;
   }
 
 }

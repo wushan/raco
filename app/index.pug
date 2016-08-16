@@ -1,0 +1,103 @@
+extends layouts/default
+include layouts/mixin/_mixin
+
+block header
+	//Custom Header
+block content
+	main
+		#main
+			section#intro
+				.intro-slider
+					.slide
+						a(href="javascript:;")
+							img(src='images/slider/main-slide-1.png')
+					.slide
+						a(href="javascript:;")
+							img(src='images/slider/main-slide-2.png')
+					.slide
+						a(href="javascript:;")
+							img(src='images/slider/main-slide-3.png')
+					.slide
+						a(href="javascript:;")
+							img(src='images/slider/main-slide-4.png')
+				.intro-ads.table
+					.table-c.t-4-12.block
+						a(href="javascript:;")
+							img(src='images/components/ad-gafa.png')
+					.table-c.t-4-12.block
+						.block-inner
+							p FOLLOW RACO ON
+							.share-links
+								a.icons-facebook(href="javascript:;")
+
+								a.icons-linkedin(href="javascript:;")
+
+								a.icons-google(href="javascript:;")
+
+								a.icons-youtube(href="javascript:;")
+							p
+								a(href='http://facebook.com/racoexpert', target='_blank') http://facebook.com/racoexpert
+
+					.table-c.t-4-12.block
+						a(href="javascript:;")
+							img(src='images/components/ad-pom.png')
+
+				.intro-slogan
+					.container.restrict
+						h1
+							|	From Blue to Green
+							small Comprehensive Range.
+					a.learn-more(href="javascript:;")
+						.icons-arrow-down
+						span Learn More
+			
+			section#product-category
+				.product-category-wrapper
+					.product-category-inner
+						.blue-line
+							.product-category(style="background-image:url('images/product/pattern-blue.png');")
+								img(src='images/product/placeholder.png')
+							.product-category(style="background-image:url('images/product/product-category-1.png');")
+								img(src='images/product/placeholder.png')
+								a.cate-sticker(href="javascript:;")
+									span Industrial Hand Tools
+							.product-category(style="background-image:url('images/product/product-category-2.png');")
+								img(src='images/product/placeholder.png')
+								a.cate-sticker(href="javascript:;")
+									span Industrial Hand Tools
+							.product-category(style="background-image:url('images/product/product-category-3.png');")
+								img(src='images/product/placeholder.png')
+								a.cate-sticker(href="javascript:;")
+									span Industrial Hand Tools
+							
+						.green-line
+							.product-category(style="background-image:url('images/product/pattern-green.png');")
+								img(src='images/product/placeholder.png')
+							.product-category(style="background-image:url('images/product/product-category-4.png');")
+								img(src='images/product/placeholder.png')
+								a.cate-sticker(href="javascript:;")
+									span Industrial Hand Tools
+							.product-category(style="background-image:url('images/product/product-category-5.png');")
+								img(src='images/product/placeholder.png')
+								a.cate-sticker(href="javascript:;")
+									span Industrial Hand Tools
+							.product-category(style="background-image:url('images/product/product-category-6.png');")
+								img(src='images/product/placeholder.png')
+								a.cate-sticker(href="javascript:;")
+									span Industrial Hand Tools
+
+
+
+
+
+
+			section
+				.container.restrict
+					h1 Normal Paragraph
+					p While you're waiting, dive into how to use Font Awesome. You'll want to add your embed code within the of each template or page that you want to use Font Awesome on. Then, check out the Font Awesome icons and examples to learn how drop icons right into your UI.
+					h1 Vue.js TRYOUT
+					button#modify(type='button') Modify
+					ul#example-1
+						li(v-for="item in items")
+							|	{{ item.id }} + 
+							span(v-if="greeting") xxx
