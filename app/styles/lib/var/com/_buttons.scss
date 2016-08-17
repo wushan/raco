@@ -1,19 +1,16 @@
 //BUTTONS
-.call-action {
-  padding: 2em 0;
-}
 .btn {
   @extend .transition;
   display: inline-block;
   vertical-align: middle;
-  padding: .6em 2em;
+  padding: .8em 3.6em;
   box-sizing: border-box;
   outline: none;
   background-color: transparent;
   border: 0;
   margin: 0 .1em;
   &.basic {
-    background-color: $main;
+    background-color: $lightgreen;
     color: $white;
     &:hover {
       background-color: $main-dark;

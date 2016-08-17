@@ -25,71 +25,25 @@ $(document).ready(function(){
   });
 });
 
+//Navigation
+$('#mobileMenu-trigger').on('click', function(){
+  $('#floatmenu').toggleClass('active');
+});
+
 
 //Intro Slider
 $('.intro-slider').slick({
-    adaptiveHeight: true
-  });
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    easing: 'ease-out'
+});
 
-var data = {
-    "greeting": true,
-    "items": [
-      {"id": "1"},
-      {"id": "2"},
-      {"id": "3"},
-      {"id": "4"},
-      {"id": "5"},
-      {"id": "6"},
-      {"id": "7"},
-      {"id": "8"},
-      {"id": "9"},
-      {"id": "10"},
-      {"id": "11"},
-      {"id": "12"},
-      {"id": "13"},
-      {"id": "14"},
-      {"id": "15"},
-      {"id": "16"},
-      {"id": "17"},
-      {"id": "18"},
-      {"id": "19"},
-      {"id": "20"},
-      {"id": "21"}
-    ]
-  }
-  var data2 = {
-    "items": [
-      {"id": "31"},
-      {"id": "223"},
-      {"id": "33"},
-      {"id": "4we"},
-      {"id": "5"},
-      {"id": "6"},
-      {"id": "7"},
-      {"id": "8"},
-      {"id": "9"},
-      {"id": "10"},
-      {"id": "11"},
-      {"id": "12"},
-      {"id": "13"},
-      {"id": "14"},
-      {"id": "15"},
-      {"id": "16"},
-      {"id": "17"},
-      {"id": "18"},
-      {"id": "19"},
-      {"id": "20"},
-      {"id": "21joke"}
-    ]
-  }
-  var example1 = new Vue({
-    el: '#example-1',
-    data: data
-  });
-  $('#modify').on('click', function(){
-    example1.items = data2.items;
-  });
-
+$('.learn-more').on('click', function(){
+  $('html,body').animate({
+    scrollTop: $('#product-category').offset().top - $('#sticky-wrapper').outerHeight()
+  })
+});
 
 //Smooth Scrolling
 $(function() {

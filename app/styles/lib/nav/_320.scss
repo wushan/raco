@@ -1,35 +1,133 @@
+
+//HEADER
+.header-inner {
+  .head-bar {
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: $white;
+    box-shadow: 0 3px 3px rgba($black, .66);
+    position: relative;
+  }
+  #brand {
+    @include span(2 of 12);
+    a {
+      display: block;
+    }
+    img {
+      max-height: 50px;
+      margin: 0;
+    }
+  }
+  #miscellaneous {
+    @include span(10 of 12 last);
+    text-align: right;
+  }
+  #mobileMenu-trigger, #search-btn {
+    margin-left: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    color: $darkgray;
+    &:hover,&:active {
+      color: $green;
+    }
+    span {
+      display: none;
+    }
+  }
+}
+#floatmenu {
+  display: none;
+  &.active {
+    display: block;
+  }
+  nav.navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    background-color: $white;
+    box-shadow: 0 3px 3px rgba($black,.66), inset 0 3px 3px -3px rgba($black,.66);
+  }
+}
+#miscellaneous {
+  nav.navigation {
+    display: none;
+  }
+}
 nav {
   text-align: center;
   @extend .clr;
-  //Normal
-  ul {
-    font-size: 0;
-    display: none;
-    li {
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 1rem;
-      a {
-        display: block;
-      }
-    }
-  }
-  a.sticky-brand {
-    float: left;
-  }
-  a.mobile-trigger {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: inline-block;
-    vertical-align: middle;
-    @include last;
+  a {
+    display: block;
   }
   //Nav in SlideBar
-  &#navigation {
-    height: 60px;
-    z-index: 999;
-    background-color: $white;
+  &.navigation {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      @extend .clr;
+      li {
+        display: block;
+        border-bottom: 1px solid $lightgray;
+        position: relative;
+        overflow: hidden;
+        &:hover, &.active {
+            &:before {
+              top:0;
+            }
+            &:after {
+              bottom: 0;
+            }
+          }
+        &:before {
+          display: block;
+          transition: .2s all ease-in;
+          content: '';
+          background-image: url('../images/components/nav-deco-top.png');
+          background-repeat: no-repeat;
+          background-position: center top;
+          height: 7px;
+          width: 100%;
+          position: absolute;
+          top: -10px;
+          left: 0;
+          right: 0;
+        }
+        &:after {
+          display: block;
+          transition: .2s all ease-in;
+          content: '';
+          background-image: url('../images/components/nav-deco-bottom.png');
+          background-repeat: no-repeat;
+          background-position: center bottom;
+          height: 7px;
+          width: 100%;
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          right: 0;
+        }
+        &:last-child {
+          border-bottom: 0;
+        }
+        a {
+          padding: 1em;
+          font-family: $plume;
+          color: $darkgray;
+          font-weight: 700;
+          position: relative;
+          overflow: hidden;
+          span {
+            display: block;
+            font-size: 12px;
+            font-family: $sans-serif;
+            color: $gray;
+          }
+        }
+      }
+    }
   }
   //Nav in SlideBar
   &.slide {

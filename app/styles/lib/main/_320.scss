@@ -16,7 +16,7 @@
 			color: $blue;
 			background-color: $smokygray;
 			text-align: center;
-			font-family: $adelle;
+			font-family: $plume;
 			p {
 				padding: 1em 0;
 				&:first-child {
@@ -41,12 +41,12 @@
 		background-size: auto 100%;
 		background-position: center;
 		text-align: center;
-		font-family: $adelle;
+		font-family: $plume;
 		color: $blue;
 		padding: 6em 0;
 		position: relative;
 		h1 {
-			font-weight: 600;
+			font-weight: 700;
 			small {
 				display: block;
 				font-size: .5em;
@@ -68,7 +68,23 @@
 		background-position: center;
 		position: relative;
 		overflow: hidden;
-		transition: .6s all ease-out;
+		transition: .4s all linear;
+		.cover {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: auto;
+			}
+		}
 		&:hover, &:active {
 			background-size: 120% auto;
 			.cate-sticker {
@@ -123,6 +139,8 @@
 				color: rgba($white, .7);
 				position: relative;
 				z-index: 2;
+				padding: 1rem;
+				box-sizing: border-box;
 			}
 		}
 	}
@@ -210,6 +228,160 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+#news {
+	.news-wrapper {}
+	.news-inner {}
+	h2 {
+		font-family: $plume;
+		color: $blue;
+		font-weight: 700;
+	}
+	.news-list {
+		@extend .clr;
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				display: block;
+				background-color: $smokygray;
+				margin-bottom: 2em;
+				//Colors
+				&:first-child {
+					a {
+						color: $blue;
+					}
+					.posted {
+						background-color: $blue;
+					}
+				}
+				&:nth-child(2) {
+					a {
+						color: $green;
+					}
+					.posted {
+						background-color: $green;
+					}
+				}
+				&:last-child {
+					a {
+						color: $orange;
+					}
+					.posted {
+						background-color: $orange;
+					}
+				}
+			}
+		}
+		article {
+			padding: 1em;
+			box-sizing: border-box;
+			@extend .clr;
+			position: relative;
+			a {
+				display: block;
+			}
+			h4 {
+				font-family: $plume;
+				font-weight: 700;
+				margin-top: 0;
+				margin-bottom: .3em;
+				height: 2.8em;
+				overflow: hidden;
+			}
+			.posted {
+				position: absolute;
+				top: -1em;
+				right: 1em;
+				color: $white;
+				padding: .2em 1em;
+			}
+			.thumbnail {
+				@include span(4 of 12);
+			}
+			.content {
+				@include span(8 of 12 last);
+			}
+			.context {
+				font-size: .9em;
+				color: $darkgray;
+				height: 4.8em;
+				overflow: hidden;
+				p {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+#contact {
+	.contact-wrapper {
+		background-image: url('../images/components/contact-header.png');
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		background-position: center top;
+		background-color: $smokygray;
+		padding: 3em 0;
+		h1 {
+			font-family: $plume;
+			font-weight: 700;
+			color: $white;
+			text-align: center;
+		}
+	}
+	.contact-form {
+		background-color: $white;
+		border-radius: 12px;
+		padding: 2em;
+		box-sizing: border-box;
+	}
+}
+
+
+//Footer
+#footer {
+	.footer-inner {
+		padding-top: 2em;
+		.footer-brand {
+			.icons-brand {
+				margin-bottom: 2em;
+			}
+		}
+		.global-offices {
+			@extend .clr;
+			.office {
+				margin: 2em 0;
+				h4 {
+					color: $blue;
+					margin: 0;
+					font-family: $plume;
+					font-weight: 700;
+				}
+			}
+			.office-info {
+				font-size: .8em;
+				color: $darkgray;
+				ul {
+					margin: 0;
+					padding: 0;
+					list-style-type: none;
+				}
+				b {
+					color: $black;
+				}
+				a {
+					color: $darkgray;
+				}
+			}
+		}
+		.copyrights {
+			text-align: center;
+			font-size: .8em;
+			padding-top: 2em;
 		}
 	}
 }

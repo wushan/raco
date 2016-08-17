@@ -1,8 +1,7 @@
 extends layouts/default
 include layouts/mixin/_mixin
 
-block header
-	//Custom Header
+
 block content
 	main
 		#main
@@ -51,53 +50,103 @@ block content
 						.icons-arrow-down
 						span Learn More
 			
-			section#product-category
-				.product-category-wrapper
-					.product-category-inner
-						.blue-line
-							.product-category(style="background-image:url('images/product/pattern-blue.png');")
-								img(src='images/product/placeholder.png')
-							.product-category(style="background-image:url('images/product/product-category-1.png');")
-								img(src='images/product/placeholder.png')
-								a.cate-sticker(href="javascript:;")
-									span Industrial Hand Tools
-							.product-category(style="background-image:url('images/product/product-category-2.png');")
-								img(src='images/product/placeholder.png')
-								a.cate-sticker(href="javascript:;")
-									span Industrial Hand Tools
-							.product-category(style="background-image:url('images/product/product-category-3.png');")
-								img(src='images/product/placeholder.png')
-								a.cate-sticker(href="javascript:;")
-									span Industrial Hand Tools
-							
-						.green-line
-							.product-category(style="background-image:url('images/product/pattern-green.png');")
-								img(src='images/product/placeholder.png')
-							.product-category(style="background-image:url('images/product/product-category-4.png');")
-								img(src='images/product/placeholder.png')
-								a.cate-sticker(href="javascript:;")
-									span Industrial Hand Tools
-							.product-category(style="background-image:url('images/product/product-category-5.png');")
-								img(src='images/product/placeholder.png')
-								a.cate-sticker(href="javascript:;")
-									span Industrial Hand Tools
-							.product-category(style="background-image:url('images/product/product-category-6.png');")
-								img(src='images/product/placeholder.png')
-								a.cate-sticker(href="javascript:;")
-									span Industrial Hand Tools
+			include layouts/product-category
+			section#news
+				.news-wrapper
+					.news-inner
+						.container.restrict
+							h2 News
+						.news-list
+							ul
+								li
+									article
+										time.posted April, 24th 2017
+										.thumbnail
+											a(href="javascript:;")
+												img(src='images/components/news-thumbnail-1.png')
+										.content
+											h4
+												a(href="javascript:;") Spoga gafa 2016
+											.context
+												p Spoga+gafa is the world's leading garden trade fair. It is held in the Colgne Trade Fair Centre and invites all the big names and major players to join together in this event… and RACO is one of them.
+								li
+									article
+										time.posted April, 24th 2017
+										.thumbnail
+											a(href="javascript:;")
+												img(src='images/components/news-thumbnail-2.png')
+										.content
+											h4
+												a(href="javascript:;") Product of the Month
+											.context
+												p Find out about RACO latest range of new innovations and trend setting designs which bring an energy-saving for high efficiency pruning works for your garden life. RACO Mighty-Cut Cutting range ensures your garden life enjoyable & pleasant!!!
+								li
+									article
+										time.posted April, 24th 2017
+										.thumbnail
+											a(href="javascript:;")
+												img(src='images/components/news-thumbnail-3.png')
+										.content
+											h4
+												a(href="javascript:;") COME & Visit RACO FACEBOOK
+											.context
+												p RACO Facebook will be on-line soon. Welcome to visit RACO Facebook to learn more about RACO !
 
 
 
-
-
-
-			section
-				.container.restrict
-					h1 Normal Paragraph
-					p While you're waiting, dive into how to use Font Awesome. You'll want to add your embed code within the of each template or page that you want to use Font Awesome on. Then, check out the Font Awesome icons and examples to learn how drop icons right into your UI.
-					h1 Vue.js TRYOUT
-					button#modify(type='button') Modify
-					ul#example-1
-						li(v-for="item in items")
-							|	{{ item.id }} + 
-							span(v-if="greeting") xxx
+			section#contact
+				.contact-wrapper
+					h1 Any Questions ?
+					.contact-inner.container.restrict-l
+						.contact-form
+							form
+								p
+									|	Please contact us through the form below, or 
+									a(href='javascript:;') find your nearest distributors.
+								.row
+									.grid.g-3-12
+										.controlgroup
+											label Name
+											.controls
+												input(type="text")
+										.controlgroup
+											label E-mail
+											.controls
+												input(type="email")
+										.controlgroup
+											label Country
+											.controls
+												.select-wrapper
+													select
+														option(value='0') Taiwan
+									.grid.g-3-12
+										.controlgroup
+											label Phone No.
+											.controls
+												input(type="text")
+										.controlgroup
+											label Company
+											.controls
+												input(type="text")
+										.controlgroup
+											label Type
+											.controls.check-group
+												.check-item
+													input#typeAgency(type="radio", name="type")
+													label(for="typeAgency") Agency
+												.check-item
+													input#typeImporter(type="radio", name="type")
+													label(for="typeImporter") Importer
+									.grid.g-6-12
+										.controlgroup
+											label Subject
+											.controls
+												.select-wrapper
+													select
+														option(value='0') Technical Support
+										.controlgroup
+											label Message
+											.controls
+												textarea.full
+								.call-action.right
+									button.btn.basic(type='submit') SUBMIT

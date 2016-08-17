@@ -1,0 +1,87 @@
+@include susy-breakpoint(1024px, 12) {
+  .header-inner {
+    #brand {
+      position: relative;
+      height: 100%;
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 0 0 2em;
+        box-sizing: border-box;
+        img {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+    .head-bar {
+      padding: 0;
+      height: 100px;
+      .container {
+        height: 100%;
+        #miscellaneous {
+          height: 100%;
+        }
+      }
+    }
+    #mobileMenu-trigger {
+      display: none;
+    }
+    #search-btn {
+      line-height: 80px;
+      width: 70px;
+      height: 100%;
+      margin: 0;
+      text-align: center;
+      position: relative;
+      span {
+        display: block;
+        position: absolute;
+        bottom: 2em;
+        line-height: 1;
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+        font-weight: 700;
+      }
+    }
+    #floatmenu {
+      display: none;
+      &.active {
+        display: none;
+      }
+    }
+    #miscellaneous {
+      nav.navigation {
+        height: 100%;
+        float: left;
+        display: block;
+        width: calc( 100% - 70px );
+        ul {
+          height: 100%;
+          li {
+            height: 100%;
+            border: 0;
+            display: inline-block;
+            vertical-align: middle;
+            border-right: 1px solid $smokygray;
+            @include gallery(3 of 12 0);
+            &:first-child {
+              border-left: 1px solid $smokygray;
+            }
+            a {
+              height: 100%;
+              padding: 1.5em 1em;
+              box-sizing: border-box;
+            }
+          }
+        }
+      }
+    } 
+  }
+}

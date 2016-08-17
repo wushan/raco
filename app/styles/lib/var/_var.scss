@@ -8,20 +8,21 @@ $darkgray: #666666;
 $darkestgray: #3e3e3e;
 
 //Set Main Color
-$main: #1565c0;
 $yellow: #F6D600;
 $green: #059B9A;
+$lightgreen: #53BA83;
 $blue: #0B55AA;
 $red: #E8373D;
 $orange: #ED6D1F;
 $purple: #A691C4;
+$main: $green;
 //
-$main-dark: darken($main, 20%);
-$main-light: lighten($main, 20%);
+$main-dark: darken($main, 10%);
+$main-light: lighten($main, 10%);
 
 
 
 //Fonts
 $sans-serif: "proxima-nova", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;
 $brandon: "brandon-grotesque", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;
-$adelle: "adelle", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;
+$plume: "plume", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;

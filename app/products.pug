@@ -1,0 +1,85 @@
+extends layouts/default
+include layouts/mixin/_mixin
+
+
+block content
+	main
+		#main
+			#products
+				include layouts/product-category
+
+				.product-catelist-wrapper
+					.product-catelist-inner
+						.container.restrict-l
+							h1 {{category.name}}
+							.product-catelist
+								ul
+									li.subcategory(v-for="category in categories")
+										.thumbnail
+											img(v-bind:src="subcategory.thumbnail")
+										h5 {{category.categories.category.name}}
+										ul
+											li {{category.category.name}}
+
+block pagescripts
+	script.
+		var category = {
+			"id": "1",
+			"name": "Industrial",
+			"category": [
+				{
+					"id": "2",
+					"name": "Super-Drive System",
+					"category": [
+						{
+							"id": "99",
+							"name": "Super-Drive Socket"
+						},
+						{
+							"id": "99",
+							"name": "Super-Drive Wrenches"
+						}
+					]
+				},
+				{
+					"id": "3",
+					"name": "BLABLA System",
+					"category": [
+						{
+							"id": "99",
+							"name": "BLABLA 2"
+						},
+						{
+							"id": "99",
+							"name": "BLABLA 2"
+						},
+						{
+							"id": "99",
+							"name": "BLABLA 2"
+						},
+						{
+							"id": "99",
+							"name": "BLABLA 2"
+						}
+					]
+				},
+				{
+					"id": "4",
+					"name": "GOGO System",
+					"category": [
+						{
+							"id": "99",
+							"name": "GOGO 3"
+						},
+						{
+							"id": "99",
+							"name": "GOGO 3"
+						},
+						{
+							"id": "99",
+							"name": "GOGO 3"
+						}
+					]
+				}
+			]
+		}

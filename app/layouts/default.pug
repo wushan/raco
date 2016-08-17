@@ -29,13 +29,89 @@ html.no-js
 						.head-bar
 							.container.row
 								#brand
-									a(href='javascript:;') Brand
+									a(href='/')
+										img(src="images/components/brand.png")
 								#miscellaneous
+									include navigation
 									a#mobileMenu-trigger(href='javascript:;')
 										i.fa.fa-bars.fa-2x
-						.container
+									a#search-btn(href="javascript:;")
+										i.fa.fa-search.fa-2x
+										span SEARCH
+						#floatmenu
 							include navigation
+
 			block content
+			block footer
+				footer#footer
+					.footer-wrapper
+						.footer-inner.container.restrict-l
+							.row
+								.grid.g-3-12
+									.footer-brand.centered
+										a.icons-brand(href="javascript:;")
+										.share-links
+											a.icons-facebook(href="javascript:;")
+
+											a.icons-linkedin(href="javascript:;")
+
+											a.icons-google(href="javascript:;")
+
+											a.icons-youtube(href="javascript:;")
+								.grid.g-9-12
+									.global-offices
+										.block.office
+											h4 Europe
+											.office-info
+												ul
+													li
+														b TEL / 
+														span +886-2-2391-1351
+													li
+														b FAX / 
+														span +886-2-2391-6776 / +886-2-2357-7319
+													li
+														b EMAIL / 
+														span
+															a(href="mailto:raco.tools@msa.hinet.net") raco.tools@msa.hinet.net
+													li
+														b ADDRESS / 
+														span 8F, No. 118, Chung-Hsiao E.Road. Sec 2, Taipei 10053, Taiwan, R.O.C
+										.block.office
+											h4 Asia
+											.office-info
+												ul
+													li
+														b TEL / 
+														span +886-2-2391-1351
+													li
+														b FAX / 
+														span +886-2-2391-6776 / +886-2-2357-7319
+													li
+														b EMAIL / 
+														span
+															a(href="mailto:raco.tools@msa.hinet.net") raco.tools@msa.hinet.net
+													li
+														b ADDRESS / 
+														span 8F, No. 118, Chung-Hsiao E.Road. Sec 2, Taipei 10053, Taiwan, R.O.C
+										.block.office
+											h4 Africa
+											.office-info
+												ul
+													li
+														b TEL / 
+														span +886-2-2391-1351
+													li
+														b FAX / 
+														span +886-2-2391-6776 / +886-2-2357-7319
+													li
+														b EMAIL / 
+														span
+															a(href="mailto:raco.tools@msa.hinet.net") raco.tools@msa.hinet.net
+													li
+														b ADDRESS / 
+														span 8F, No. 118, Chung-Hsiao E.Road. Sec 2, Taipei 10053, Taiwan, R.O.C
+							.copyrights Copyright © RACOMASTER ENTERPRISES CORP
 			
 
 		// Google Analytics: change UA-XXXXX-X to be your site's ID.

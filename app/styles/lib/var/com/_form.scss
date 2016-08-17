@@ -1,26 +1,41 @@
 .call-action {
-  text-align: center;
+  padding: 1em 0 0 0;
 }
 //ControlGroup
 .controlgroup {
   margin-bottom: .5em;
   @extend .clr;
   label {
-    font-size: 1.1em;
+    font-size: 1em;
+    font-family: $plume;
+    font-weight: 700;
     line-height: 44px;
-    @include breakpoint(1280px) {
-      width: 140px;
-      display: inline-block;
-      float: left;
-    }
   }
   .controls {
-    @include breakpoint(1280px) {
-      margin-left: 140px;
-    }
     &.small {
       width: 50%;
       margin: 0 auto;
+    }
+    &.check-group {
+      .check-item {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1em;
+      }
+      input {
+        display: inline-block;
+        vertical-align: middle;
+        // transform: scale(1.2);
+        height: auto;
+        width: auto;
+        &:focus {
+          border: 0;
+        }
+        & + label {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
     }
     .status {
       display: inline-block;
@@ -37,13 +52,13 @@
 }
 textarea {
   width: 100%;
-  border: 1px solid $gray;
+  border: 1px solid $lightgray;
   box-sizing: border-box;
   height: 44px;
   background-color: $smokygray;
   padding: 1em;
   outline: none;
-  min-height: 200px;
+  min-height: 140px;
   &:focus {
     border: 1px solid $main-dark;
     background-color: $main-dark;
@@ -52,7 +67,7 @@ textarea {
 }
 input,input[type=search] {
   width: 100%;
-  border: 1px solid $gray;
+  border: 1px solid $lightgray;
   box-sizing: border-box;
   height: 44px;
   background-color: $smokygray;
@@ -125,8 +140,7 @@ input,input[type=search] {
     display: inline-block;
     vertical-align: middle;
     overflow: hidden;
-    border: 1px solid $gray;
-    box-shadow: inset 0 0 3px rgba($black, .33);
+    border: 1px solid $lightgray;
     &:focus {
 
     }
