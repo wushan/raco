@@ -386,6 +386,65 @@
 	}
 }
 
+#products {
+	background-image: url('../images/background/gray-noise.png');
+	background-repeat: repeat;
+}
+
+#product-list {
+	h2 {
+		text-align: center;
+		font-weight: 700;
+		font-family: $plume;
+		border-bottom: 1px solid $gray;
+		padding-bottom: 1em;
+	}
+	h5 {
+		font-weight: 600;
+		margin: .5em 0;
+	}
+	ul.product-catelist {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		@extend .clr;
+		li.subcategory {
+			margin-bottom: 1em;
+		}
+		a {
+			display: block;
+		}
+		img {
+			width: 100%;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			li {
+				a {
+					color: $darkgray;
+					font-size: .9em;
+				}
+			}
+		}
+		.thumbnail {
+			border: 1px solid $gray;
+		}
+	}
+	//Color Types
+	.product-catelist-inner {
+		&.industrial {
+			border-top: 16px solid $yellow;			
+			h2,h5 {
+				color: $blue;
+				a {
+					color: $blue;
+				}
+			}
+		}
+	}
+}
 //Stand Alone
 .share-links {
 	a {

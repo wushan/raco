@@ -47,4 +47,11 @@
 			}
 		}
 	}
+	#product-list {
+		ul.product-catelist {
+			li.subcategory {
+				@include gallery(6 of 12);
+			}
+		}
+	}
 }

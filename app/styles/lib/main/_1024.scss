@@ -1,0 +1,9 @@
+@include susy-breakpoint(1024px, 12) {
+	#product-list {
+		ul.product-catelist {
+			li.subcategory {
+				@include gallery(3 of 12);
+			}
+		}
+	}
+}
